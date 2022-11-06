@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ekaterina {
     public class MouseLook : MonoBehaviour
     {
         public float mouseSensitivity = 100f;
@@ -28,5 +27,4 @@ namespace Ekaterina {
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
-}
 }
