@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
 
     private bool isGrounded;
+    private KeyCode jumpKey = KeyCode.RightShift;
     
 
     void Update()
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
