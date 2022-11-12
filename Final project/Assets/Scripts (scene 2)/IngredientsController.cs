@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,14 @@ public class IngredientsController : MonoBehaviour
         } else if (collider.gameObject.name == "Cube")
         {
             Destroy(Cube);
+        }
+    }
+
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("Ingredient") == null)
+        {
+            Debug.Log("Done");
         }
     }
 }
