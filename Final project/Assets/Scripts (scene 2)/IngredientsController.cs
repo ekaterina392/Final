@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IngredientsController : MonoBehaviour
 {
+    //explosion
     public ParticleSystem explosion;
 
     //Three ingredients
@@ -12,9 +13,13 @@ public class IngredientsController : MonoBehaviour
     public GameObject Skull;
     public GameObject Egg;
 
-    
     //Potion
-    //public GameObject Capsule;
+    public GameObject Capsule;
+
+    private void Awake()
+    {
+        Capsule.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -36,6 +41,7 @@ public class IngredientsController : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Cauldron"));
             CreateParticles();
+            Capsule.SetActive(true);
         }
     }
     
