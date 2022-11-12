@@ -7,6 +7,7 @@ public class IngredientsController : MonoBehaviour
 {
     //explosion
     public ParticleSystem explosion;
+    public ParticleSystem greenFire;
 
     //Three ingredients
     public GameObject Crystal;
@@ -14,11 +15,11 @@ public class IngredientsController : MonoBehaviour
     public GameObject Egg;
 
     //Potion
-    public GameObject Capsule;
+    public GameObject Potion;
 
     private void Awake()
     {
-        Capsule.SetActive(false);
+        Potion.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -41,12 +42,13 @@ public class IngredientsController : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Cauldron"));
             CreateParticles();
-            Capsule.SetActive(true);
+            Potion.SetActive(true);
         }
     }
     
     void CreateParticles()
     {
         explosion.Play();
+        greenFire.Play();
     }
 }
