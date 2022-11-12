@@ -16,7 +16,7 @@ public class IngredientsController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Sphere")
+        if (collider.gameObject.name == "Crystal")
         {
             Destroy(Sphere);
         } else if (collider.gameObject.name == "Cylinder")
