@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class IngredientsController : MonoBehaviour
 {
+    public ParticleSystem explosion;
+
     //Three ingredients
-    public GameObject Sphere;
-    public GameObject Cylinder;
-    public GameObject Cube;
+    public GameObject Crystal;
+    public GameObject Skull;
+    public GameObject Egg;
 
     
     //Potion
@@ -16,15 +18,15 @@ public class IngredientsController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Crystal")
+        if (collider.gameObject.name == "BetterCrystal01")
         {
-            Destroy(Sphere);
-        } else if (collider.gameObject.name == "Cylinder")
+            Destroy(Crystal);
+        } else if (collider.gameObject.name == "prop_skull")
         {
-            Destroy(Cylinder);
-        } else if (collider.gameObject.name == "Cube")
+            Destroy(Skull);
+        } else if (collider.gameObject.name == "Egg")
         {
-            Destroy(Cube);
+            Destroy(Egg);
         }
     }
 
@@ -32,7 +34,13 @@ public class IngredientsController : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Ingredient") == null)
         {
-            Debug.Log("Done");
+            Destroy(GameObject.FindGameObjectWithTag("Cauldron"));
+            CreateParticles();
         }
+    }
+    
+    void CreateParticles()
+    {
+        explosion.Play();
     }
 }
