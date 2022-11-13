@@ -27,6 +27,8 @@ public class IngredientsController : MonoBehaviour
         if (collider.gameObject.name == "BetterCrystal01")
         {
             Destroy(Crystal);
+
+
         } else if (collider.gameObject.name == "prop_skull")
         {
             Destroy(Skull);
