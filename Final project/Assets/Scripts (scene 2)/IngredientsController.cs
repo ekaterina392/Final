@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class IngredientsController : MonoBehaviour
 {
-    //explosion
-    public ParticleSystem explosion;
-    public ParticleSystem greenFire;
+    //Explosion and green fire
+    public ParticleSystem Explosion;
+    public ParticleSystem GreenFire;
 
     //Three ingredients
     public GameObject Crystal;
@@ -27,8 +27,6 @@ public class IngredientsController : MonoBehaviour
         if (collider.gameObject.name == "BetterCrystal01")
         {
             Destroy(Crystal);
-
-
         } else if (collider.gameObject.name == "prop_skull")
         {
             Destroy(Skull);
@@ -50,7 +48,7 @@ public class IngredientsController : MonoBehaviour
     
     void CreateParticles()
     {
-        explosion.Play();
-        greenFire.Play();
+        Explosion.Play();
+        GreenFire.Play();
     }
 }
