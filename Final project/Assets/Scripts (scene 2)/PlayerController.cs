@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
 
     private bool isGrounded;
-    private KeyCode jumpKey = KeyCode.RightShift;
+    private KeyCode jumpKey = KeyCode.Space;
     
 
     void Update()
