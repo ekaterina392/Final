@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DialogController : MonoBehaviour
 {
+    //Start canvas
+    public GameObject CanvasStart;
+
     //Centaur
     public GameObject CanvasCentaur;
     public GameObject Centaur;
@@ -38,6 +41,7 @@ public class DialogController : MonoBehaviour
 
     private void Awake()
     {
+        CanvasStart.SetActive(true);
         CanvasCentaur.SetActive(false);
         CanvasCrab.SetActive(false);
         CanvasTitan.SetActive(false);
@@ -54,6 +58,8 @@ public class DialogController : MonoBehaviour
         if (Vector3. Distance(gameObject.transform.position, Centaur.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
         {
             CanvasCentaur.SetActive(true);
+            Destroy(CanvasStart);
+
         }
         
         if (Vector3. Distance(gameObject.transform.position, Centaur.transform.position) > 5)
@@ -62,7 +68,7 @@ public class DialogController : MonoBehaviour
         }
     
         //Crab
-        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasCrab.SetActive(true);
         }
@@ -73,7 +79,7 @@ public class DialogController : MonoBehaviour
         }
         
         //Titan
-        if (Vector3. Distance(gameObject.transform.position, Titan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, Titan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasTitan.SetActive(true);
         }
@@ -84,7 +90,7 @@ public class DialogController : MonoBehaviour
         }
         
         //Cave man
-        if (Vector3. Distance(gameObject.transform.position, CaveMan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, CaveMan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasCaveMan.SetActive(true);
         }
@@ -95,7 +101,7 @@ public class DialogController : MonoBehaviour
         }
         
         //Troll
-        if (Vector3. Distance(gameObject.transform.position, Troll.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, Troll.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasTroll.SetActive(true);
         }
@@ -106,7 +112,7 @@ public class DialogController : MonoBehaviour
         }
         
         //Demon girl
-        if (Vector3. Distance(gameObject.transform.position, DemonGirl.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, DemonGirl.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasDemonGirl.SetActive(true);
         }
@@ -117,7 +123,7 @@ public class DialogController : MonoBehaviour
         }
         
         //Piggy orc
-        if (Vector3. Distance(gameObject.transform.position, PiggyOrc.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, PiggyOrc.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasPiggyOrc.SetActive(true);
         }
@@ -129,7 +135,7 @@ public class DialogController : MonoBehaviour
         
         
         //Woman warrior
-        if (Vector3. Distance(gameObject.transform.position, WomanWarrior.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
+        if (Vector3. Distance(gameObject.transform.position, WomanWarrior.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasWomanWarrior.SetActive(true);
         }

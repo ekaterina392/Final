@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
+    //Start canvas
+    public GameObject CanvasStart;
+    
     private KeyCode pickKey = KeyCode.E;
 
     //Pickup Settings
@@ -18,13 +21,13 @@ public class PickupController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(pickKey))
+        if (Input.GetKeyDown(pickKey) && CanvasStart == null)
         {
-            if (heldObject == null)
+            if (heldObject == null && CanvasStart == null)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,
-                        pickupRange))
+                        pickupRange) && CanvasStart == null)
                 {
                     PickupObject(hit.transform.gameObject);
                 }
@@ -35,7 +38,7 @@ public class PickupController : MonoBehaviour
             }
         }
 
-        if (heldObject != null)
+        if (heldObject != null && CanvasStart == null)
         {
             MoveObject();
         }
@@ -43,7 +46,7 @@ public class PickupController : MonoBehaviour
 
     void MoveObject()
     {
-        if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
+        if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f && CanvasStart == null)
         {
             Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
             heldObjectRB.AddForce(moveDirection * pickupForce);
@@ -52,7 +55,7 @@ public class PickupController : MonoBehaviour
 
     void PickupObject(GameObject pickObject)
     {
-        if (pickObject.GetComponent<Rigidbody>())
+        if (pickObject.GetComponent<Rigidbody>() && CanvasStart == null)
         {
             heldObjectRB = pickObject.GetComponent<Rigidbody>();
             heldObjectRB.useGravity = false;
