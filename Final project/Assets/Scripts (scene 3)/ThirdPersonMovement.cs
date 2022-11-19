@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public Animator DragonAnimator;
+
     public CharacterController controller;
 
     public Transform camera;
@@ -27,6 +29,12 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
     
+    void Start()
+    {
+        //Get the Animator attached to the GameObject you are intending to animate.
+        DragonAnimator = gameObject.GetComponent<Animator>();
+    }
+    
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -43,6 +51,21 @@ public class ThirdPersonMovement : MonoBehaviour
 
             Vector3 moveDirection = Quaternion.Euler(0f, tragetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+            
+            //Reset the "idle" trigger
+            DragonAnimator.ResetTrigger("idle");
+
+            //Send the message to the Animator to activate the trigger parameter named "walk"
+            DragonAnimator.SetTrigger("walk");
+        }
+        
+        if (direction.magnitude < 0.1f)
+        {
+            //Reset the "idle" trigger
+            DragonAnimator.ResetTrigger("walk");
+
+            //Send the message to the Animator to activate the trigger parameter named "walk"
+            DragonAnimator.SetTrigger("idle");
         }
         
         //Jumping
