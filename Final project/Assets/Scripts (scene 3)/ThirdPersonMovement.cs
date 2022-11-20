@@ -63,16 +63,28 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
             
             //Reset the "idle" trigger
+            DragonAnimator.ResetTrigger("fly");
+            
+            //Reset the "idle" trigger
             DragonAnimator.ResetTrigger("idle");
 
             //Send the message to the Animator to activate the trigger parameter named "walk"
             DragonAnimator.SetTrigger("walk");
         }
         
-        if (direction.magnitude < 0.1f)
+        if (direction.magnitude >= 0.1f && isGrounded == false)
         {
             //Reset the "idle" trigger
             DragonAnimator.ResetTrigger("walk");
+
+            //Send the message to the Animator to activate the trigger parameter named "walk"
+            DragonAnimator.SetTrigger("fly");
+        }
+        
+        if (direction.magnitude < 0.1f)
+        {
+            DragonAnimator.ResetTrigger("walk");
+            DragonAnimator.ResetTrigger("fly");
 
             //Send the message to the Animator to activate the trigger parameter named "walk"
             DragonAnimator.SetTrigger("idle");
@@ -81,25 +93,21 @@ public class ThirdPersonMovement : MonoBehaviour
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
+        /*
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
-            
-        }
+        } */
         
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            DragonAnimator.SetTrigger("fly");
         }
-        
-        if (isGrounded)
-        {
-            //Reset the "idle" trigger
-            //DragonAnimator.ResetTrigger("fly");
 
-            //Send the message to the Animator to activate the trigger parameter named "walk"
-            //DragonAnimator.SetTrigger("idle");
+        if (isGrounded == false)
+        {
+            DragonAnimator.ResetTrigger("idle");
+            DragonAnimator.SetTrigger("fly");
         }
 
         velocity.y += gravity * Time.deltaTime;
