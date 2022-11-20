@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -28,6 +29,15 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
+    
+    /*
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.name == "cube")
+        {
+            Debug.Log("collision");
+        }
+    } */
     
     void Start()
     {
@@ -70,14 +80,28 @@ public class ThirdPersonMovement : MonoBehaviour
         
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            
         }
+        
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            DragonAnimator.SetTrigger("fly");
         }
+        
+        if (isGrounded)
+        {
+            //Reset the "idle" trigger
+            //DragonAnimator.ResetTrigger("fly");
+
+            //Send the message to the Animator to activate the trigger parameter named "walk"
+            //DragonAnimator.SetTrigger("idle");
+        }
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
