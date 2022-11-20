@@ -5,6 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public ParticleSystem fireBreath;
+
     private Animator DragonAnimator;
 
     public CharacterController controller;
@@ -81,6 +83,7 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * Flyspeed * Time.deltaTime);      
             
             DragonAnimator.ResetTrigger("walk");
+            
             DragonAnimator.SetTrigger("fly");
         }
         
@@ -123,9 +126,33 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.ResetTrigger("fly");
 
             DragonAnimator.SetTrigger("breathFire");
+            CreateParticles();
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        
+        
+        //Stops Fly Fire Breath if incorrect animation is played
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            StopParticles();
+        }
+        
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+        {
+            StopParticles();
+        }
+
+    }
+    
+    void CreateParticles()
+    {
+        fireBreath.Play();
+    }
+    
+    void StopParticles()
+    {
+        fireBreath.Stop();
     }
 }
