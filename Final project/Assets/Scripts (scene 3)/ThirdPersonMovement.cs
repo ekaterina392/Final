@@ -5,13 +5,15 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    public Animator DragonAnimator;
+    private Animator DragonAnimator;
 
     public CharacterController controller;
 
     public Transform camera;
 
-    public float speed = 6f;
+    private float speed = 10;
+    private float Flyspeed = 20;
+
 
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
@@ -41,7 +43,6 @@ public class ThirdPersonMovement : MonoBehaviour
     
     void Start()
     {
-        //Get the Animator attached to the GameObject you are intending to animate.
         DragonAnimator = gameObject.GetComponent<Animator>();
     }
     
@@ -62,22 +63,22 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, tragetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
             
-            //Reset the "idle" trigger
             DragonAnimator.ResetTrigger("fly");
-            
-            //Reset the "idle" trigger
             DragonAnimator.ResetTrigger("idle");
 
-            //Send the message to the Animator to activate the trigger parameter named "walk"
             DragonAnimator.SetTrigger("walk");
         }
         
         if (direction.magnitude >= 0.1f && isGrounded == false)
         {
-            //Reset the "idle" trigger
+            float tragetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, tragetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
+            
+            Vector3 moveDirection = Quaternion.Euler(0f, tragetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDirection.normalized * Flyspeed * Time.deltaTime);      
+            
             DragonAnimator.ResetTrigger("walk");
-
-            //Send the message to the Animator to activate the trigger parameter named "walk"
             DragonAnimator.SetTrigger("fly");
         }
         
@@ -86,7 +87,6 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.ResetTrigger("walk");
             DragonAnimator.ResetTrigger("fly");
 
-            //Send the message to the Animator to activate the trigger parameter named "walk"
             DragonAnimator.SetTrigger("idle");
         }
         
@@ -99,7 +99,7 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = -2f;
         } */
         
-        if (Input.GetKeyDown(jumpKey) && isGrounded)
+        if (Input.GetKeyDown(jumpKey))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }

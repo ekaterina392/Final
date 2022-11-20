@@ -1615,6 +1615,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 66989152}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &174238435
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &181841809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,7 +6652,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658311160}
-  m_LocalRotation: {x: 0.20267302, y: 0.000000016849295, z: -0.0000000034872703, w: 0.9792465}
+  m_LocalRotation: {x: 0.20267299, y: -0.00000001684928, z: 0.0000000034872671, w: 0.9792465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14183,7 +14220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.22045144, y: -0.000000018092996, z: 0.0000000040892307, w: 0.97539794}
+  m_LocalRotation: {x: 0.22045146, y: 0.0000000161469, z: -0.0000000036493912, w: 0.97539794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18326,7 +18363,7 @@ MonoBehaviour:
   camera: {fileID: 1931258223}
   speed: 20
   turnSmoothTime: 0.1
-  gravity: -40
+  gravity: -10
   jumpHeight: 10
   groundCheck: {fileID: 797582117}
   groundDistance: 1.3
@@ -18632,7 +18669,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931258219}
-  m_LocalRotation: {x: 0.20267303, y: 0.00000003369858, z: -0.0000000069745396, w: 0.9792465}
+  m_LocalRotation: {x: 0.20267297, y: -0.000000033698576, z: 0.000000006974537, w: 0.9792465}
   m_LocalPosition: {x: -19.325144, y: 18.651697, z: 3.091957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
