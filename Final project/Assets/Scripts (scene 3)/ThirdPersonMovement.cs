@@ -52,6 +52,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        //Walking
         if (direction.magnitude >= 0.1f)
         {
             float tragetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
@@ -69,6 +70,7 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.SetTrigger("walk");
         }
         
+        //Flying
         if (direction.magnitude >= 0.1f && isGrounded == false)
         {
             float tragetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
@@ -82,13 +84,16 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.SetTrigger("fly");
         }
         
+        //Idle
         if (direction.magnitude < 0.1f)
         {
             DragonAnimator.ResetTrigger("walk");
             DragonAnimator.ResetTrigger("fly");
+            DragonAnimator.ResetTrigger("breathFire");
 
             DragonAnimator.SetTrigger("idle");
         }
+        
         
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -107,7 +112,17 @@ public class ThirdPersonMovement : MonoBehaviour
         if (isGrounded == false)
         {
             DragonAnimator.ResetTrigger("idle");
+            DragonAnimator.ResetTrigger("breathFire");
+
             DragonAnimator.SetTrigger("fly");
+        }
+        
+        //Fly Fire Breath
+        if (isGrounded == false && Input.GetMouseButtonDown(0))
+        {
+            DragonAnimator.ResetTrigger("fly");
+
+            DragonAnimator.SetTrigger("breathFire");
         }
 
         velocity.y += gravity * Time.deltaTime;
