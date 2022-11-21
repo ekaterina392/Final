@@ -5,6 +5,12 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    //Default to 3 second cooldown
+    public float Cooldown = 3f;
+ 
+    //Used as a count down timer
+    public float CooldownCountdown = 0f;
+    
     public ParticleSystem fireBreath;
 
     private Animator DragonAnimator;
@@ -121,12 +127,24 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         
         //Fly Fire Breath
-        if (isGrounded == false && Input.GetMouseButtonDown(0))
+        if (CooldownCountdown < 0f)
         {
-            DragonAnimator.ResetTrigger("fly");
+            if (isGrounded == false && Input.GetMouseButtonDown(0))
+            {
+                //reset the cooldown timer
+                CooldownCountdown = Cooldown;
+                //print a message to the console
+                Debug.Log("Registered click");
+                
+                DragonAnimator.ResetTrigger("fly");
 
-            DragonAnimator.SetTrigger("breathFire");
-            CreateParticles();
+                DragonAnimator.SetTrigger("breathFire");
+                CreateParticles();
+            }
+        } else
+        {
+            //Countdown the timer with the time past in the last frame
+            CooldownCountdown -= Time.deltaTime;
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -144,6 +162,13 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
         }
 
+        /*
+        if (fireBreath.isPlaying)
+        {
+            DragonAnimator.ResetTrigger("fly");
+            DragonAnimator.SetTrigger("breathFire");
+        } */
+
     }
     
     void CreateParticles()
@@ -155,4 +180,5 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         fireBreath.Stop();
     }
+    
 }
