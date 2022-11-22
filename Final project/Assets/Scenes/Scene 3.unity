@@ -14897,7 +14897,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.22045144, y: 0.000000018092996, z: -0.0000000040892307, w: 0.97539794}
+  m_LocalRotation: {x: 0.22045147, y: 0.00000002014346, z: -0.0000000045526605, w: 0.97539794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18954,7 +18954,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 10
-  m_Acceleration: 8
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -19083,7 +19083,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869249085}
-  m_LocalRotation: {x: 0.18487468, y: -0.000000008454893, z: 0.0000000015905125, w: 0.9827621}
+  m_LocalRotation: {x: 0.18487468, y: 0.000000008454888, z: -0.0000000015905115, w: 0.9827621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

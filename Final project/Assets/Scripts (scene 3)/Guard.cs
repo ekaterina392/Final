@@ -30,6 +30,7 @@ public class Guard : MonoBehaviour
     void Update()
     {
         Zorlik.SetBool("isChasing", false);
+        Zorlik.SetBool("isAttacking", false);
 
         _agent.speed = speed;
 
@@ -42,8 +43,14 @@ public class Guard : MonoBehaviour
             Zorlik.SetBool("isChasing", true);
             
             //Increase enemy speed after noticing the player
-            _agent.speed = 50f;
-
+            _agent.speed = 10f;
+            
+            if (Vector3.Distance(transform.position,playerTarget.position)<10f)
+            {
+                Zorlik.SetBool("isAttacking", true);
+                //Zorlik.transform.LookAt(playerTarget);
+                _agent.speed = 0;
+            }
         }
         if (!_agent.pathPending)
         {
