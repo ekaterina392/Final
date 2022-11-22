@@ -9,6 +9,8 @@ using UnityEngine.AI;
 namespace Ekaterina {
     public class Guard : MonoBehaviour
     {
+        private Animator Zorlik;
+
         NavMeshAgent _agent;
         public Transform[] targetLocations;
         public Transform playerTarget;
@@ -27,6 +29,8 @@ namespace Ekaterina {
         {
             _agent = transform.GetComponent<NavMeshAgent>();
             activeTargetLocation = lastActiveWayPoint = targetLocations[0]; //set the default targets
+            Zorlik = gameObject.GetComponent<Animator>();
+
         }
 
         // Update is called once per frame
@@ -36,6 +40,7 @@ namespace Ekaterina {
             if (playerTarget.GetComponent<MarsPlayer>().IsShaded &&
                 activeTargetLocation != lastActiveWayPoint)
             {
+                Zorlik.SetBool("isChasing", false);
                 _agent.SetDestination(lastActiveWayPoint.position);
                 activeTargetLocation = lastActiveWayPoint;
             }
@@ -45,6 +50,9 @@ namespace Ekaterina {
                 lastActiveWayPoint = targetLocations[_targetIndex];
                 _agent.SetDestination(playerTarget.position);
                 activeTargetLocation = playerTarget;
+                
+                //Running animation set up
+                Zorlik.SetBool("isChasing", true);
             }
             else //if we're normally moving, this remains unchanged
             {

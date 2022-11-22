@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bba0b4e9888e4546b58ef6ac9fbb2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  howClose: 1000
+  howClose: 10
   head: {fileID: 209971412}
   barrel: {fileID: 1454748380}
   _projectile: {fileID: 5049601626279859595, guid: 0e54a4f9eade24010a1a74319cd547ff,
@@ -6689,7 +6689,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658311160}
-  m_LocalRotation: {x: 0.20267299, y: -0.00000001684928, z: 0.0000000034872671, w: 0.9792465}
+  m_LocalRotation: {x: 0.20267302, y: 0.000000016849295, z: -0.0000000034872703, w: 0.9792465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13447,15 +13447,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.620552
+      value: 37.4
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.508806
+      value: -11.2
       objectReference: {fileID: 0}
     - target: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14897,7 +14897,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.22045147, y: 0.00000002014346, z: -0.0000000045526605, w: 0.97539794}
+  m_LocalRotation: {x: 0.22045146, y: -0.0000000161469, z: 0.0000000036493912, w: 0.97539794}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18930,7 +18930,7 @@ MonoBehaviour:
   - {fileID: 1579637811}
   - {fileID: 345349537}
   playerTarget: {fileID: 84006478}
-  sight: 10
+  sight: 100
   lastActiveWayPoint: {fileID: 1619374792}
   activeTargetLocation: {fileID: 1579637811}
 --- !u!114 &1869079601
@@ -19681,7 +19681,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931258219}
-  m_LocalRotation: {x: 0.20267297, y: -0.000000033698576, z: 0.000000006974537, w: 0.9792465}
+  m_LocalRotation: {x: 0.20267303, y: 0.000000033698576, z: -0.0000000069745387, w: 0.9792465}
   m_LocalPosition: {x: -19.325144, y: 18.651697, z: 3.091957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
