@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ekaterina;
 using UnityEngine;
 
 public class EnemyAttacked : MonoBehaviour
 {
+    public GameObject Enemy;
+    public Animator Zorlik;
+
     public int Health = 100;
-    int Damage = 1;
+    int Damage = 50;
     
     //Here should go sounds
 
@@ -19,19 +23,18 @@ public class EnemyAttacked : MonoBehaviour
     //public ParticleSystem enemyFire5;
 
     //If enemy's health is zero
-    
-    /*
-    private void Update()
-    {
-        if (Health <= 0)
-        {
-            Time.timeScale = 0;
-        }
-    } */
 
     private void Update()
     {
         InAttackRange = false;
+        
+        if (Health <= 0)
+        {
+            Zorlik.SetBool("dead", true);
+            //disable player controller script
+            Enemy.GetComponent<Guard>().enabled = false;
+            Enemy.GetComponent<PathUtils>().enabled = false;
+        }
     }
 
     private void OnParticleCollision(GameObject collision)

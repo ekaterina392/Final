@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//WRONG SCRIPT
 public class EnemyHealth : MonoBehaviour
 {
     public int Health = 100;
