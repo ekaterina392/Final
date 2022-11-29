@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Enemy
   - Fire
+  - Cannon
   layers:
   - Default
   - TransparentFX

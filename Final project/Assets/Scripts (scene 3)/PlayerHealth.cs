@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    //Enemy hit
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "Enemy")
@@ -50,7 +51,15 @@ public class PlayerHealth : MonoBehaviour
             //DragonAnimator.ResetTrigger("walk");
 
             DragonAnimator.SetBool("hit1", true);
-
+        }
+        
+        if (collision.transform.tag == "Cannon")
+        {
+            InAttackRange = true;
+            StartCoroutine(HurtPlayer());
+            
+            DragonAnimator.SetTrigger("hitFly");
+            //DragonAnimator.ResetTrigger("walk");
         }
     }
 
