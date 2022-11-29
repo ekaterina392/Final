@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Animator DragonAnimator;
+
     public GameObject Player;
     public int Health = 100;
     int Damage = 10;
@@ -21,31 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         EndMenu.SetActive(false);
     }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.transform.tag == "Enemy")
-        {
-            InAttackRange = true;
-            StartCoroutine(HurtPlayer());
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        InAttackRange = false;
-    }
-
-    IEnumerator HurtPlayer()
-    {
-        while (true && InAttackRange == true)
-        {
-            Health -= Damage;
-            HealthDisplay.GetComponent<TMP_Text>().text = "" + Health;
-            yield return new WaitForSeconds(3f);
-        }
-    }
-
+    
     private void Update()
     {
         if (Health <= 0)
@@ -59,6 +37,37 @@ public class PlayerHealth : MonoBehaviour
             
             Cursor.visible = true;
             Screen.lockCursor = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.transform.tag == "Enemy")
+        {
+            InAttackRange = true;
+            StartCoroutine(HurtPlayer());
+            //DragonAnimator.ResetTrigger("idle");
+            //DragonAnimator.ResetTrigger("walk");
+
+            DragonAnimator.SetBool("hit1", true);
+
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        //DragonAnimator.ResetTrigger("hit");
+        InAttackRange = false;
+        DragonAnimator.SetBool("hit1", false);
+    }
+
+    IEnumerator HurtPlayer()
+    {
+        while (true && InAttackRange == true)
+        {
+            Health -= Damage;
+            HealthDisplay.GetComponent<TMP_Text>().text = "" + Health;
+            yield return new WaitForSeconds(3f);
         }
     }
 }
