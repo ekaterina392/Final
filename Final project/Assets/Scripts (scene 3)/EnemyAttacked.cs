@@ -8,6 +8,7 @@ using UnityEngine.AI;
 
 public class EnemyAttacked : MonoBehaviour
 {
+    public Material material;
     public NavMeshAgent _agent;
 
     public GameObject Enemy;
@@ -28,6 +29,14 @@ public class EnemyAttacked : MonoBehaviour
 
     //If enemy's health is zero
 
+    //Color green;
+
+
+    private void Awake()
+    {
+        material.SetColor("_BaseColor", Color.white);
+    }
+
     private void Update()
     {
         InAttackRange = false;
@@ -39,6 +48,7 @@ public class EnemyAttacked : MonoBehaviour
             Enemy.GetComponent<Guard>().enabled = false;
             Enemy.GetComponent<PathUtils>().enabled = false;
             _agent.speed = 0f;
+            material.SetColor("_BaseColor", Color.grey);
         }
     }
 
