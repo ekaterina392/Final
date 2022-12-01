@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Ekaterina;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class EnemyAttacked : MonoBehaviour
 {
+    public NavMeshAgent _agent;
+
     public GameObject Enemy;
     public Animator Zorlik;
 
@@ -34,6 +38,7 @@ public class EnemyAttacked : MonoBehaviour
             //disable player controller script
             Enemy.GetComponent<Guard>().enabled = false;
             Enemy.GetComponent<PathUtils>().enabled = false;
+            _agent.speed = 0f;
         }
     }
 
