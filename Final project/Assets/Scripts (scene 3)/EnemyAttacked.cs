@@ -49,6 +49,7 @@ public class EnemyAttacked : MonoBehaviour
             Enemy.GetComponent<PathUtils>().enabled = false;
             _agent.speed = 0f;
             material.SetColor("_BaseColor", Color.grey);
+            Destroy(enemyFire1);
         }
     }
 
