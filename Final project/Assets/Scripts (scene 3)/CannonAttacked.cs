@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class CannonAttacked : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ParticleSystem Smoke;
+    public ParticleSystem Explosion;
+    public GameObject CannonDestroyed;
+    
+    private void Awake()
     {
-        
+        CannonDestroyed.SetActive(false);
+    }
+    
+    private void OnParticleCollision(GameObject collision)
+    {
+        if (collision.gameObject.name == "Cannon")
+        {
+            Debug.Log("cannon");
+            Destroy(GameObject.FindGameObjectWithTag("Cannon"));
+            CreateParticles();
+            CannonDestroyed.SetActive(true);
+            Destroy(Explosion);
+            CreateSmoke();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void CreateParticles()
     {
-        
+        Explosion.Play();
+    }
+    
+    void CreateSmoke()
+    {
+        Smoke.Play();
     }
 }
