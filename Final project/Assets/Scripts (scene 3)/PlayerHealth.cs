@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
             DragonAnimator.SetBool("hit1", true);
         }
         
-        if (collision.transform.tag == "Cannon")
+        if (collision.transform.tag == "Projectile")
         {
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        //DragonAnimator.ResetTrigger("hit");
+        DragonAnimator.ResetTrigger("hitFly");
         InAttackRange = false;
         DragonAnimator.SetBool("hit1", false);
     }

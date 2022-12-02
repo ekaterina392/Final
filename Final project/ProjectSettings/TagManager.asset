@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Fire
   - Cannon
+  - Glow
+  - FxTemporaire
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Glow
   - 
   - Reflection_Probes
   - Lighting

@@ -89,7 +89,7 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * Flyspeed * Time.deltaTime);      
             
             DragonAnimator.ResetTrigger("walk");
-            
+
             DragonAnimator.SetTrigger("fly");
         }
         
