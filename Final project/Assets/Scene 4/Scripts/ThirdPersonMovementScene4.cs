@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovementScene4 : MonoBehaviour
 {
+
     //Default to 3 second cooldown
     public float Cooldown = 3f;
  
