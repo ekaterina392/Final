@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DialogControllerScene1 : MonoBehaviour
 {
+    public GameObject DoorTrigger;
+
     public AudioSource Knocking;
+    public AudioSource GirlSpeaking;
 
     public GameObject CanvasGirl;
     public GameObject CanvasPressT;
@@ -14,6 +17,8 @@ public class DialogControllerScene1 : MonoBehaviour
 
     private void Awake()
     {
+        DoorTrigger.SetActive(false);
+        
         CanvasGirl.SetActive(false);
         CanvasPressT.SetActive(true);
         CanvasPressE.SetActive(false);
@@ -34,10 +39,21 @@ public class DialogControllerScene1 : MonoBehaviour
  
                 CanvasPressE.SetActive(true);
                 Destroy(CanvasGirl);
-                Knocking.Play(2);
+                Knocking.Play();
+                
+                GirlSpeaking.PlayDelayed(2.5f);
+
+                DoorTrigger.SetActive(true);
             }
             
             StartCoroutine(ExecuteAfterTime(3));
+        }
+        
+        if (Vector3.Distance(gameObject.transform.position, DoorTrigger.transform.position) < 2.5f &&
+            Input.GetKeyDown(KeyCode.E) && DoorTrigger.activeSelf)
+        {
+            //moving to the sound scene
+            Debug.Log("door opened");
         }
     }
 
