@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovementScene4 : MonoBehaviour
 {
+    public GameObject CanvasEvil;
 
     //Default to 3 second cooldown
     public float Cooldown = 3f;
@@ -17,9 +18,7 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
     private Animator DragonAnimator;
 
     public CharacterController controller;
-
-    public Transform camera;
-
+    
     private float speed = 4;
 
     public float turnSmoothTime = 0.1f;
@@ -86,24 +85,23 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
 
             DragonAnimator.SetTrigger("idle");
         }
+        
+        //Fire
+        if (Input.GetMouseButtonDown(0) && CanvasEvil == null)
+        {
+            DragonAnimator.SetBool("fire", true);
+            
+            DragonAnimator.ResetTrigger("walk");
+            DragonAnimator.ResetTrigger("idle");
+            
+            CreateParticles();
+        } 
 
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        
-        
-        //Stops Fly Fire Breath if incorrect animation is played
-        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-        {
-            StopParticles();
-        }
-        
-        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
-        {
-            StopParticles();
-        }
 
     }
     
@@ -111,10 +109,5 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
     {
         fireBreath.Play();
     }
-    
-    void StopParticles()
-    {
-        fireBreath.Stop();
-    }
-    
+
 }
