@@ -13,6 +13,7 @@ TagManager:
   - Glow
   - FxTemporaire
   - Projectile
+  - Trigger
   layers:
   - Default
   - TransparentFX
