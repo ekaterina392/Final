@@ -95,7 +95,20 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
             DragonAnimator.ResetTrigger("idle");
             
             CreateParticles();
-        } 
+        }
+        
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("breath fire"))
+        {
+            //Here scene will change
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+ 
+                Debug.Log("bla");
+            }
+            
+            StartCoroutine(ExecuteAfterTime(3));
+        }
 
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
