@@ -8,33 +8,27 @@ using UnityEngine.AI;
 
 public class EnemyAttacked : MonoBehaviour
 {
-    public Material material;
-    public NavMeshAgent _agent;
+    //Mosnter1
+    public Material Monster1Material;
+    public NavMeshAgent Monster1Agent;
 
-    public GameObject Enemy;
-    public Animator Zorlik;
-
+    public GameObject Monster1;
+    public Animator Monster1Animator;
+    public ParticleSystem Monster1Fire;
+    
     public int Health = 100;
+    
     int Damage = 50;
     
     //Here should go sounds
 
     public bool InAttackRange;
     
-    public ParticleSystem enemyFire1;
-    //public ParticleSystem enemyFire2;
-    //public ParticleSystem enemyFire3;
-    //public ParticleSystem enemyFire4;
-    //public ParticleSystem enemyFire5;
-
-    //If enemy's health is zero
-
-    //Color green;
 
 
     private void Awake()
     {
-        material.SetColor("_BaseColor", Color.white);
+        Monster1Material.SetColor("_BaseColor", Color.white);
     }
 
     private void Update()
@@ -43,25 +37,25 @@ public class EnemyAttacked : MonoBehaviour
         
         if (Health <= 0)
         {
-            Zorlik.SetBool("dead", true);
+            Monster1Animator.SetBool("dead", true);
             //disable player controller script
-            Enemy.GetComponent<Guard>().enabled = false;
-            Enemy.GetComponent<PathUtils>().enabled = false;
-            _agent.speed = 0f;
-            material.SetColor("_BaseColor", Color.grey);
-            Destroy(enemyFire1);
+            Monster1.GetComponent<Guard>().enabled = false;
+            Monster1.GetComponent<PathUtils>().enabled = false;
+            Monster1Agent.speed = 0f;
+            Monster1Material.SetColor("_BaseColor", Color.grey);
+            Destroy(Monster1Fire);
         }
     }
 
     private void OnParticleCollision(GameObject collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Monster1"))
         {
             InAttackRange = true;
             StartCoroutine(HurtEnemy());
             
             //Debug.Log("collision");
-            CreateParticles();
+            CreateParticlesMonster1();
         }
     }
     
@@ -74,13 +68,9 @@ public class EnemyAttacked : MonoBehaviour
         }
     }
 
-    void CreateParticles()
+    void CreateParticlesMonster1()
     {
-        enemyFire1.Play();
-        //enemyFire2.Play();
-        //enemyFire3.Play();
-        //enemyFire4.Play();
-        //enemyFire5.Play();
+        Monster1Fire.Play();
     }
 
 }

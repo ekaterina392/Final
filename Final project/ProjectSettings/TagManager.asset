@@ -15,6 +15,7 @@ TagManager:
   - Projectile
   - Trigger
   - Cannon1
+  - Monster1
   layers:
   - Default
   - TransparentFX
