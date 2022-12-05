@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     //Here should go sounds
 
     public GameObject EndMenu;
-    public bool InAttackRange = false;
+    public bool InAttackRange;
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
+        InAttackRange = false;
+
         if (Health <= 0)
         {
             HealthDisplay.GetComponent<TMP_Text>().text = "" + "0";
@@ -57,7 +59,8 @@ public class PlayerHealth : MonoBehaviour
         {
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
-            
+            Destroy(GameObject.FindGameObjectWithTag("Projectile"));
+
             DragonAnimator.SetTrigger("hitFly");
             //DragonAnimator.ResetTrigger("walk");
         }

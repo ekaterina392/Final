@@ -5,30 +5,30 @@ using UnityEngine;
 public class CannonAttacked : MonoBehaviour
 {
     public ParticleSystem Smoke;
-    public ParticleSystem Explosion;
-    public GameObject CannonDestroyed;
+    public ParticleSystem Explosion1;
+    public GameObject Cannon1Destroyed;
     
     private void Awake()
     {
-        CannonDestroyed.SetActive(false);
+        Cannon1Destroyed.SetActive(false);
     }
     
     private void OnParticleCollision(GameObject collision)
     {
-        if (collision.gameObject.name == "Cannon")
+        if (collision.gameObject.name == "Cannon1")
         {
-            Debug.Log("cannon");
-            Destroy(GameObject.FindGameObjectWithTag("Cannon"));
+            Debug.Log("cannon1");
+            Destroy(GameObject.FindGameObjectWithTag("Cannon1"));
             CreateParticles();
-            CannonDestroyed.SetActive(true);
-            Destroy(Explosion);
+            Cannon1Destroyed.SetActive(true);
+            Destroy(Explosion1);
             CreateSmoke();
         }
     }
 
     void CreateParticles()
     {
-        Explosion.Play();
+        Explosion1.Play();
     }
     
     void CreateSmoke()

@@ -19,7 +19,7 @@ public class EnemyAttacked : MonoBehaviour
     
     //Here should go sounds
 
-    public bool InAttackRange = false;
+    public bool InAttackRange;
     
     public ParticleSystem enemyFire1;
     //public ParticleSystem enemyFire2;

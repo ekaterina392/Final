@@ -14,6 +14,7 @@ TagManager:
   - FxTemporaire
   - Projectile
   - Trigger
+  - Cannon1
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Ground
   - AccessibleVolume
   - PostProcessing
-  - 
+  - Cannon
   - MainGround
   - 
   - 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CannonControl : MonoBehaviour
 {
+    public ParticleSystem Shoot;
+
     Transform _Player;
     private float distance;
     public float howClose;
@@ -29,6 +31,7 @@ public class CannonControl : MonoBehaviour
             {
                 nextFire = Time.time + 1f / fireRate;
                 shoot();
+                CreateParticles();
             }
         }
     }
@@ -41,5 +44,10 @@ public class CannonControl : MonoBehaviour
         
         //10 is amount of seconds after which projectile are destroyed
         Destroy(clone, 10);
+    }
+    
+    void CreateParticles()
+    {
+        Shoot.Play();
     }
 }
