@@ -161,6 +161,11 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             StopParticles();
         }
+        
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly hit"))
+        {
+            StopParticles();
+        }
 
         /*
         if (fireBreath.isPlaying)
