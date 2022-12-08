@@ -106,6 +106,17 @@ public class PlayerHealth : MonoBehaviour
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             Debug.Log("!");
+            
+            DragonAnimator.SetTrigger("hit1");
+        }
+        
+        if (collision.transform.tag == "Projectile" && isGrounded == false)
+        {
+            InAttackRange = true;
+            StartCoroutine(HurtPlayer());
+            Debug.Log("!");
+            
+            DragonAnimator.SetTrigger("hitFly");
         }
     }
     
@@ -116,7 +127,9 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("exit"); 
         Destroy(collision.gameObject);
-
+        
+        DragonAnimator.ResetTrigger("hitFly");
+        
         //Destroy(GameObject.FindGameObjectWithTag("Projectile"));
     }
 
