@@ -128,6 +128,8 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("exit"); 
         Destroy(collision.gameObject);
         
+        DragonAnimator.SetBool("hit1", false);
+        DragonAnimator.ResetTrigger("hit1");
         DragonAnimator.ResetTrigger("hitFly");
         
         //Destroy(GameObject.FindGameObjectWithTag("Projectile"));
