@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     //Here should go sounds
 
     public GameObject EndMenu;
-    public bool InAttackRange;
+    public bool InAttackRange = false;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
-        InAttackRange = false;
+        //InAttackRange = false;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -56,14 +56,18 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.transform.tag == "Monster1")
         {
+            Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             //DragonAnimator.ResetTrigger("idle");
             //DragonAnimator.ResetTrigger("walk");
+            
+            DragonAnimator.SetBool("hit1", true);
 
-            DragonAnimator.SetTrigger("hit2");
+            //DragonAnimator.SetTrigger("hit2");
         }
         
+        /*
         if (collision.transform.tag == "Projectile" && isGrounded == false)
         {
             InAttackRange = true;
@@ -82,15 +86,38 @@ public class PlayerHealth : MonoBehaviour
 
             DragonAnimator.SetTrigger("hit2");
             //DragonAnimator.ResetTrigger("walk");
-        }
+        } */
         
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        DragonAnimator.ResetTrigger("hit2");
+        //DragonAnimator.ResetTrigger("hit2");
         DragonAnimator.ResetTrigger("hitFly");
         InAttackRange = false;
+        DragonAnimator.SetBool("hit1", false);
+    }
+    
+    //Projectile hit
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Projectile")
+        {
+            InAttackRange = true;
+            StartCoroutine(HurtPlayer());
+            Debug.Log("!");
+        }
+    }
+    
+    //Projectile stop hitting
+    void OnCollisionExit(Collision collision)
+    {
+        InAttackRange = false;
+
+        Debug.Log("exit"); 
+        Destroy(collision.gameObject);
+
+        //Destroy(GameObject.FindGameObjectWithTag("Projectile"));
     }
 
     IEnumerator HurtPlayer()

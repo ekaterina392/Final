@@ -16,6 +16,7 @@ TagManager:
   - Trigger
   - Cannon1
   - Monster1
+  - Dragon
   layers:
   - Default
   - TransparentFX
