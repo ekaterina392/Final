@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
-        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 25;
 
         if (InAttackRange == true)
         {

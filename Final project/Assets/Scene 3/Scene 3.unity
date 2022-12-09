@@ -49539,7 +49539,7 @@ MonoBehaviour:
   fireBreath: {fileID: 559031903}
   controller: {fileID: 1916614305}
   camera: {fileID: 1931258223}
-  speed: 10
+  speed: 20
   turnSmoothTime: 0.1
   gravity: -10
   jumpHeight: 10
