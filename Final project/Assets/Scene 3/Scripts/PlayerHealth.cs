@@ -32,6 +32,11 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
+        if (InAttackRange == true)
+        {
+            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            DragonAnimator.ResetTrigger("walk");
+        }
         //InAttackRange = false;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -95,7 +100,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
 
         //DragonAnimator.ResetTrigger("hit2");
         DragonAnimator.ResetTrigger("hitFly");
@@ -108,7 +113,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.transform.tag == "Projectile")
         {
-            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
             
             //Timer
             IEnumerator ExecuteAfterTime(float time)
@@ -151,6 +156,7 @@ public class PlayerHealth : MonoBehaviour
         
         DragonAnimator.SetBool("hit1", false);
         
+        DragonAnimator.ResetTrigger("walk");
         DragonAnimator.ResetTrigger("hit1");
         DragonAnimator.ResetTrigger("hitFly");
         
