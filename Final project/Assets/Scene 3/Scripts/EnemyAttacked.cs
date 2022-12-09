@@ -53,9 +53,16 @@ public class EnemyAttacked : MonoBehaviour
         {
             InAttackRange = true;
             StartCoroutine(HurtEnemy());
-            
-            //Debug.Log("collision");
             CreateParticlesMonster1();
+            
+            //Timer
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+                StopParticlesMonster1();
+            }
+            
+            StartCoroutine(ExecuteAfterTime(10));
         }
     }
     
@@ -72,5 +79,11 @@ public class EnemyAttacked : MonoBehaviour
     {
         Monster1Fire.Play();
     }
+    
+    void StopParticlesMonster1()
+    {
+        Monster1Fire.Stop();
+    }
+
 
 }
