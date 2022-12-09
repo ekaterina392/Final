@@ -29941,7 +29941,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.26675493, y: -0.000000016582899, z: 0.000000004589887, w: 0.9637644}
+  m_LocalRotation: {x: 0.26675493, y: 0.000000016582899, z: -0.000000004589887, w: 0.9637644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52576,7 +52576,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869249085}
-  m_LocalRotation: {x: 0.23157018, y: -0.00000001673868, z: 0.0000000039844847, w: 0.9728182}
+  m_LocalRotation: {x: 0.23157018, y: 0.000000016738678, z: -0.0000000039844843, w: 0.9728182}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53397,6 +53397,7 @@ MonoBehaviour:
   fireBreath: {fileID: 559031903}
   controller: {fileID: 1916614305}
   camera: {fileID: 1931258223}
+  speed: 10
   turnSmoothTime: 0.1
   gravity: -10
   jumpHeight: 10

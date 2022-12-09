@@ -19,7 +19,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public Transform camera;
 
-    private float speed = 10;
+    public float speed = 10;
     private float Flyspeed = 20;
 
 

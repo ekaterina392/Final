@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject EndMenu;
     public bool InAttackRange = false;
+    
 
     private void Awake()
     {
@@ -56,6 +57,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.transform.tag == "Monster1")
         {
+            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+
             Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
@@ -92,6 +95,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
+        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+
         //DragonAnimator.ResetTrigger("hit2");
         DragonAnimator.ResetTrigger("hitFly");
         InAttackRange = false;
@@ -103,11 +108,27 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.transform.tag == "Projectile")
         {
+            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            
+            //Timer
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+                GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+            }
+            StartCoroutine(ExecuteAfterTime(1.2f));
+            
+            //disable player controller script
+            //Player.GetComponent<ThirdPersonMovement>().enabled = false;
+            
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             Debug.Log("!");
             
-            DragonAnimator.SetTrigger("hit1");
+            DragonAnimator.ResetTrigger("idle");
+            DragonAnimator.ResetTrigger("walk");
+            
+            DragonAnimator.SetBool("hit1", true);
         }
         
         if (collision.transform.tag == "Projectile" && isGrounded == false)
@@ -129,6 +150,7 @@ public class PlayerHealth : MonoBehaviour
         Destroy(collision.gameObject);
         
         DragonAnimator.SetBool("hit1", false);
+        
         DragonAnimator.ResetTrigger("hit1");
         DragonAnimator.ResetTrigger("hitFly");
         
