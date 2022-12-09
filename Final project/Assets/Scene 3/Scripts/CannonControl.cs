@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CannonControl : MonoBehaviour
 {
+    public AudioSource CannonShoot;
     public ParticleSystem Shoot;
 
     Transform _Player;
@@ -32,6 +33,7 @@ public class CannonControl : MonoBehaviour
                 nextFire = Time.time + 1f / fireRate;
                 shoot();
                 CreateParticles();
+                CannonShoot.Play();
             }
         }
     }
