@@ -5694,7 +5694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shoot: {fileID: 1190017051}
-  howClose: 200
+  howClose: 10
   head: {fileID: 6471192676374101491}
   barrel: {fileID: 1219510596409983876}
   _projectile: {fileID: 3761242750793060919, guid: 5237ef9f42c714eaf9086e27de2c43e1,

@@ -32,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
+        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+
         if (InAttackRange == true)
         {
             GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
@@ -149,6 +151,8 @@ public class PlayerHealth : MonoBehaviour
     //Projectile stop hitting
     void OnCollisionExit(Collision collision)
     {
+        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+
         InAttackRange = false;
 
         Debug.Log("exit"); 
