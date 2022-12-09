@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CannonAttacked : MonoBehaviour
 {
+    //Cannon1
+    public AudioSource CannonExplosion;
     public ParticleSystem Smoke;
     public ParticleSystem Explosion1;
     public GameObject Cannon1Destroyed;
@@ -22,6 +24,7 @@ public class CannonAttacked : MonoBehaviour
             CreateParticles();
             Cannon1Destroyed.SetActive(true);
             Destroy(Explosion1);
+            CannonExplosion.Play();
             CreateSmoke();
         }
     }
