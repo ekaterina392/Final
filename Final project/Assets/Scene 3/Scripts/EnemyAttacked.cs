@@ -8,7 +8,8 @@ using UnityEngine.AI;
 
 public class EnemyAttacked : MonoBehaviour
 {
-    //Mosnter1
+    //Monster1
+    public Collider Monster1Collider;
     public Material Monster1Material;
     public NavMeshAgent Monster1Agent;
 
@@ -44,6 +45,9 @@ public class EnemyAttacked : MonoBehaviour
             Monster1Agent.speed = 0f;
             Monster1Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster1Fire);
+
+            //Collider
+            Monster1Collider.enabled = false;
         }
     }
 
