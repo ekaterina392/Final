@@ -18,7 +18,7 @@ public class EnemyAttacked : MonoBehaviour
     
     public int Health = 100;
     
-    int Damage = 50;
+    int Damage = 1;
     
     //Here should go sounds
 
