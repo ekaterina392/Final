@@ -5,6 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public AudioSource FireBreathSound;
+
     //Default to 3 second cooldown
     public float Cooldown = 3f;
  
@@ -144,6 +146,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
                 DragonAnimator.SetTrigger("breathFire");
                 CreateParticles();
+                FireBreathSound.Play();
             }
         } else
         {
@@ -159,16 +162,19 @@ public class ThirdPersonMovement : MonoBehaviour
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
             StopParticles();
+            FireBreathSound.Stop();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
         {
             StopParticles();
+            FireBreathSound.Stop();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly hit"))
         {
             StopParticles();
+            FireBreathSound.Stop();
         }
 
         /*
