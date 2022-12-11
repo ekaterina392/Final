@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class ThirdPersonMovement : MonoBehaviour
 {
     public AudioSource FireBreathSound;
+    public AudioSource DragonFootsteps;
 
     //Default to 3 second cooldown
     public float Cooldown = 3f;
@@ -58,10 +59,6 @@ public class ThirdPersonMovement : MonoBehaviour
     
     void Update()
     {
-        if (speed == 0)
-        {
-            DragonAnimator.ResetTrigger("walk");
-        }
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -80,7 +77,7 @@ public class ThirdPersonMovement : MonoBehaviour
             
             DragonAnimator.ResetTrigger("fly");
             DragonAnimator.ResetTrigger("idle");
-
+            
             DragonAnimator.SetTrigger("walk");
         }
         
@@ -129,6 +126,7 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.ResetTrigger("idle");
             DragonAnimator.ResetTrigger("breathFire");
 
+            DragonFootsteps.Stop();
             DragonAnimator.SetTrigger("fly");
         }
         
@@ -158,11 +156,13 @@ public class ThirdPersonMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         
         
-        //Stops Fly Fire Breath if incorrect animation is played
+        //Stops Fly Fire Breath and its sounds if incorrect animation is played
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
             StopParticles();
             FireBreathSound.Stop();
+            DragonFootsteps.Play(); //Idk why but it doesnt work properly with "walk"
+
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
@@ -175,14 +175,13 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             StopParticles();
             FireBreathSound.Stop();
+            DragonFootsteps.Stop();
         }
-
-        /*
-        if (fireBreath.isPlaying)
+        
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly"))
         {
-            DragonAnimator.ResetTrigger("fly");
-            DragonAnimator.SetTrigger("breathFire");
-        } */
+            DragonFootsteps.Play(); //Otherwise wont play right after landing
+        }
 
     }
     
