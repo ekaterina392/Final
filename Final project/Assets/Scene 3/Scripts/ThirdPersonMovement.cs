@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+    public AudioSource DragonFly;
     public AudioSource FireBreathSound;
     public AudioSource DragonFootsteps;
 
@@ -145,6 +146,10 @@ public class ThirdPersonMovement : MonoBehaviour
                 DragonAnimator.SetTrigger("breathFire");
                 CreateParticles();
                 FireBreathSound.Play();
+                
+                //FireBreathSound.Play();
+                DragonFly.Stop();
+                //DragonFly.Pause();
             }
         } else
         {
@@ -154,6 +159,11 @@ public class ThirdPersonMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (isGrounded)
+        {
+            DragonFly.Play();
+        }
         
         
         //Stops Fly Fire Breath and its sounds if incorrect animation is played
@@ -169,6 +179,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             StopParticles();
             FireBreathSound.Stop();
+            
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly hit"))
