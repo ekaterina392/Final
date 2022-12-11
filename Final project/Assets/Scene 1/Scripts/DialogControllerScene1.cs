@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogControllerScene1 : MonoBehaviour
 {
+    public GameObject Text;
+    public GameObject Button;
+
+    public AudioSource DoorSound;
+    public AudioSource Scream;
+
     public GameObject DoorTrigger;
 
     public AudioSource Knocking;
@@ -13,10 +20,17 @@ public class DialogControllerScene1 : MonoBehaviour
     public GameObject CanvasPressT;
     public GameObject CanvasPressE;
     
+    public GameObject NextLevel;
+
+    
     public GameObject Girl;
 
     private void Awake()
     {
+        Text.SetActive(false);
+        Button.SetActive(false);
+        
+        NextLevel.SetActive(false);
         DoorTrigger.SetActive(false);
         
         CanvasGirl.SetActive(false);
@@ -31,29 +45,55 @@ public class DialogControllerScene1 : MonoBehaviour
         {
             CanvasGirl.SetActive(true);
             Destroy(CanvasPressT);
-            
-            //Timer
-            IEnumerator ExecuteAfterTime(float time)
-            {
-                yield return new WaitForSeconds(time);
- 
-                CanvasPressE.SetActive(true);
-                Destroy(CanvasGirl);
-                Knocking.Play();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CanvasPressE.SetActive(true);
+            Destroy(CanvasGirl);
+            Knocking.Play();
                 
-                GirlSpeaking.PlayDelayed(2.5f);
-
-                DoorTrigger.SetActive(true);
-            }
-            
-            StartCoroutine(ExecuteAfterTime(3));
+            GirlSpeaking.PlayDelayed(2.5f);
+            DoorTrigger.SetActive(true);
         }
         
         if (Vector3.Distance(gameObject.transform.position, DoorTrigger.transform.position) < 2.5f &&
             Input.GetKeyDown(KeyCode.E) && DoorTrigger.activeSelf)
         {
-            //moving to the sound scene
-            Debug.Log("door opened");
+            NextLevel.SetActive(true);
+            Destroy(CanvasPressE);
+            Destroy(DoorTrigger);
+            Knocking.Stop();
+            GirlSpeaking.Stop();
+            
+            DoorSound.Play();
+            
+            //Timer
+            IEnumerator ExecuteAfterTime1(float time)
+            {
+                yield return new WaitForSeconds(time);
+
+                Scream.Play();
+            }
+            StartCoroutine(ExecuteAfterTime1(3));
+            
+            
+            //Timer
+            IEnumerator ExecuteAfterTime2(float time)
+            {
+                yield return new WaitForSeconds(time);
+                
+                Text.SetActive(true);
+            }
+            StartCoroutine(ExecuteAfterTime2(10));
+            
+            IEnumerator ExecuteAfterTime3(float time)
+            {
+                yield return new WaitForSeconds(time);
+                
+                Button.SetActive(true);
+            }
+            StartCoroutine(ExecuteAfterTime3(17));
         }
     }
 
