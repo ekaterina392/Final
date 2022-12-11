@@ -194,14 +194,14 @@ public class ThirdPersonMovement : MonoBehaviour
             FireBreathSound.Stop();
             DragonFootsteps.Stop();
             
+            DragonFly.PlayDelayed(1.23f);
+            
             //DragonFly.Play();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly"))
         {
             DragonFootsteps.Play(); //Otherwise wont play right after landing
-            
-            //DragonFly.Play();
         }
 
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("hit"))
@@ -209,7 +209,7 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonFly.Stop();
         }
     }
-    
+
     void CreateParticles()
     {
         fireBreath.Play();

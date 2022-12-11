@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public AudioSource hitFly;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -55,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
             Cursor.visible = true;
             Screen.lockCursor = false;
         }
+
     }
 
     //Enemy hit
@@ -145,6 +148,8 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("!");
             
             DragonAnimator.SetTrigger("hitFly");
+            hitFly.Play();
+
         }
     }
     
