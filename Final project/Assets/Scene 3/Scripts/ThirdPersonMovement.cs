@@ -155,6 +155,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             //Countdown the timer with the time past in the last frame
             CooldownCountdown -= Time.deltaTime;
+            DragonFly.PlayDelayed(0.53f);
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -172,6 +173,8 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
             FireBreathSound.Stop();
             DragonFootsteps.Play(); //Idk why but it doesnt work properly with "walk"
+            
+            //DragonFly.Play();
 
         }
         
@@ -180,6 +183,7 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
             FireBreathSound.Stop();
             
+            //DragonFly.Play();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly hit"))
@@ -187,11 +191,15 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
             FireBreathSound.Stop();
             DragonFootsteps.Stop();
+            
+            //DragonFly.Play();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly"))
         {
             DragonFootsteps.Play(); //Otherwise wont play right after landing
+            
+            //DragonFly.Play();
         }
 
     }
