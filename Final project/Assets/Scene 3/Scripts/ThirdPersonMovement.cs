@@ -183,6 +183,8 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
             FireBreathSound.Stop();
             
+            //DragonFly.Stop();
+
             //DragonFly.Play();
         }
         
@@ -202,6 +204,10 @@ public class ThirdPersonMovement : MonoBehaviour
             //DragonFly.Play();
         }
 
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("hit"))
+        {
+            DragonFly.Stop();
+        }
     }
     
     void CreateParticles()
