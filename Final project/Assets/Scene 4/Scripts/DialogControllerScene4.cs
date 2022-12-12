@@ -14,8 +14,8 @@ public class DialogControllerScene4 : MonoBehaviour
     public CinemachineFreeLook Cinemachine;
     //public CinemachineFreeLook.Orbit[] originalOrbits;
     
-    public GameObject Throne;
-    public Transform ThroneCamera;
+    public GameObject Monster;
+    public Transform MonsterCamera;
     
     private void Awake()
     {
@@ -24,10 +24,10 @@ public class DialogControllerScene4 : MonoBehaviour
 
     void Update()
     {
-        if (Vector3. Distance(gameObject.transform.position, Throne.transform.position) < 10 && CanvasEvil != null)
+        if (Vector3. Distance(gameObject.transform.position, Monster.transform.position) < 10 && CanvasEvil != null)
         {
-            Cinemachine.LookAt = ThroneCamera;
-            Cinemachine.Follow = ThroneCamera;
+            Cinemachine.LookAt = MonsterCamera;
+            Cinemachine.Follow = MonsterCamera;
             
             Cinemachine.m_Orbits[1].m_Height = 1.26f;
             Cinemachine.m_Orbits[1].m_Radius = 6.41f;
@@ -48,21 +48,6 @@ public class DialogControllerScene4 : MonoBehaviour
             }
             
             StartCoroutine(ExecuteAfterTime(3));
-
-            //
-            //Cinemachine.m_Orbits
-
-            //Cinemachine.GetRig(1).m_Lens.FieldOfView = 20;
-
-/*
-            Cinemachine.GetRig(0).GetCinemachineComponent<CinemachineComposer>().m_ScreenX = 10;
-            Cinemachine.GetRig(1).GetCinemachineComponent<CinemachineComposer>().m_ScreenX = 10;
-            Cinemachine.GetRig(2).GetCinemachineComponent<CinemachineComposer>().m_ScreenX = 10;        
-            
-            Cinemachine.GetRig(0).GetCinemachineComponent<CinemachineComposer>().m_ScreenY = 10;
-            Cinemachine.GetRig(1).GetCinemachineComponent<CinemachineComposer>().m_ScreenY = 10;
-            Cinemachine.GetRig(2).GetCinemachineComponent<CinemachineComposer>().m_ScreenY = 10;
-            */
         }
 
         if (CanvasEvil == null)
