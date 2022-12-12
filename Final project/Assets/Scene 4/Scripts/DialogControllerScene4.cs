@@ -8,6 +8,7 @@ public class DialogControllerScene4 : MonoBehaviour
 {
     public Transform DragonTransform;
     
+    public GameObject CanvasPressF;
     public GameObject Dragon;
     public GameObject CanvasEvil;
 
@@ -19,7 +20,9 @@ public class DialogControllerScene4 : MonoBehaviour
     
     private void Awake()
     {
+        Dragon.GetComponent<FireBreath>().enabled = false;
         CanvasEvil.SetActive(false);
+        CanvasPressF.SetActive(false);
     }
 
     void Update()
@@ -52,7 +55,9 @@ public class DialogControllerScene4 : MonoBehaviour
 
         if (CanvasEvil == null)
         {
-            Dragon.GetComponent<ThirdPersonMovementScene4>().enabled = true;
+            CanvasPressF.SetActive(true);
+
+            Dragon.GetComponent<FireBreath>().enabled = true;
 
             Cinemachine.LookAt = DragonTransform;
             Cinemachine.Follow = DragonTransform;

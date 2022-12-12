@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class ThirdPersonMovementScene4 : MonoBehaviour
 {
-    public GameObject CanvasEvil;
+    public GameObject TheEnd;
 
-    //Default to 3 second cooldown
-    public float Cooldown = 3f;
- 
-    //Used as a count down timer
-    public float CooldownCountdown = 0f;
-    
-    public ParticleSystem fireBreath;
 
     private Animator DragonAnimator;
 
@@ -37,16 +31,12 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
 
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
-    
-    /*
-    private void OnTriggerEnter(Collider collider)
+
+    private void Awake()
     {
-        if (collider.gameObject.name == "cube")
-        {
-            Debug.Log("collision");
-        }
-    } */
-    
+        TheEnd.SetActive(false);
+    }
+
     void Start()
     {
         DragonAnimator = gameObject.GetComponent<Animator>();
@@ -85,30 +75,6 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
 
             DragonAnimator.SetTrigger("idle");
         }
-        
-        //Fire
-        if (Input.GetMouseButtonDown(0) && CanvasEvil == null)
-        {
-            DragonAnimator.SetBool("fire", true);
-            
-            DragonAnimator.ResetTrigger("walk");
-            DragonAnimator.ResetTrigger("idle");
-            
-            CreateParticles();
-        }
-        
-        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("breath fire"))
-        {
-            //Here scene will change
-            IEnumerator ExecuteAfterTime(float time)
-            {
-                yield return new WaitForSeconds(time);
- 
-                Debug.Log("bla");
-            }
-            
-            StartCoroutine(ExecuteAfterTime(3));
-        }
 
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -117,10 +83,4 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
     }
-    
-    void CreateParticles()
-    {
-        fireBreath.Play();
-    }
-
 }
