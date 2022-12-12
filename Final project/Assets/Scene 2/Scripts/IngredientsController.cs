@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IngredientsController : MonoBehaviour
 {
@@ -64,6 +65,12 @@ public class IngredientsController : MonoBehaviour
             ExplosionSound.Play();
             PotionSound.PlayDelayed(1);
             CanvasEnd.SetActive(true);
+        }
+        
+        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene("Scene 3");
         }
     }
     
