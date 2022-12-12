@@ -6,6 +6,10 @@ public class DialogController : MonoBehaviour
 {
     //Start canvas
     public GameObject CanvasStart;
+    
+    //Instructions canvas
+    public GameObject Instructions;
+
 
     //Centaur
     public GameObject CanvasCentaur;
@@ -41,6 +45,8 @@ public class DialogController : MonoBehaviour
 
     private void Awake()
     {
+        Instructions.SetActive(false);
+
         CanvasStart.SetActive(true);
         CanvasCentaur.SetActive(false);
         CanvasCrab.SetActive(false);
@@ -54,6 +60,11 @@ public class DialogController : MonoBehaviour
     
     void Update ()
     {
+        if (CanvasStart == null)
+        {
+            Instructions.SetActive(true);
+        }
+
         //Centaur
         if (Vector3. Distance(gameObject.transform.position, Centaur.transform.position) < 5 && Input.GetKeyDown(KeyCode.T))
         {

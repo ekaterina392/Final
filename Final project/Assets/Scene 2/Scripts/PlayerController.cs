@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource Footsteps;
+
     public CharacterController controller;
     
     public float speed = 12f;
@@ -23,6 +25,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Footsteps.Play();
+        }
+        
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            Footsteps.Stop();
+        }
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
         if (isGrounded && velocity.y < 0)
