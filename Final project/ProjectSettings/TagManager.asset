@@ -20,6 +20,7 @@ TagManager:
   - cage_door
   - Monster
   - Monster2
+  - Monster3
   layers:
   - Default
   - TransparentFX

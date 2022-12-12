@@ -81,6 +81,19 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(HurtPlayer());
             DragonAnimator.SetBool("hit1", true);
         }
+        
+        //Monster3
+        if (collision.transform.tag == "Monster3")
+        {
+            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+
+            hitFly.Play();
+
+            Debug.Log("collision");
+            InAttackRange = true;
+            StartCoroutine(HurtPlayer());
+            DragonAnimator.SetBool("hit1", true);
+        }
     }
 
     private void OnTriggerExit(Collider collision)

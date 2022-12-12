@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
-    private Animator Zorlik;
+    private Animator Monster;
     public static float speed = 5f;
 
 
@@ -20,7 +20,7 @@ public class Guard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Zorlik = gameObject.GetComponent<Animator>();
+        Monster = gameObject.GetComponent<Animator>();
 
         _agent = transform.GetComponent<NavMeshAgent>();
     }
@@ -28,8 +28,8 @@ public class Guard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Zorlik.SetBool("isChasing", false);
-        Zorlik.SetBool("isAttacking", false);
+        Monster.SetBool("isChasing", false);
+        Monster.SetBool("isAttacking", false);
 
         _agent.speed = speed;
 
@@ -39,14 +39,14 @@ public class Guard : MonoBehaviour
             _agent.SetDestination(playerTarget.position);
             
             //Running animation set up
-            Zorlik.SetBool("isChasing", true);
+            Monster.SetBool("isChasing", true);
             
             //Increase enemy speed after noticing the player
             _agent.speed = 10f;
             
             if (Vector3.Distance(transform.position,playerTarget.position)<10f)
             {
-                Zorlik.SetBool("isAttacking", true);
+                Monster.SetBool("isAttacking", true);
                 //Zorlik.transform.LookAt(playerTarget);
                 _agent.speed = 0;
             }
