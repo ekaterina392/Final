@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.Space;
-    
 
     void Update()
     {

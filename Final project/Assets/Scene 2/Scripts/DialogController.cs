@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class DialogController : MonoBehaviour
 {
+    public AudioSource CrabSound;
+    public AudioSource TitanSound;
+    public AudioSource CavemanSound;
+    public AudioSource TrollSound;
+    public AudioSource DemonGirlSound;
+    public AudioSource PiggyOrcSound;
+    public AudioSource WomanWarriorSound;
+    public AudioSource CentaurSound;
+
     //Start canvas
     public GameObject CanvasStart;
     
@@ -70,78 +79,92 @@ public class DialogController : MonoBehaviour
         {
             CanvasCentaur.SetActive(true);
             Destroy(CanvasStart);
-
+            CentaurSound.Play();
         }
         
         if (Vector3. Distance(gameObject.transform.position, Centaur.transform.position) > 5)
         {
             CanvasCentaur.SetActive(false);
+            CentaurSound.Stop();
         }
     
         //Crab
         if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasCrab.SetActive(true);
+            CrabSound.Play();
         }
         
         if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) > 5)
         {
             CanvasCrab.SetActive(false);
+            CrabSound.Stop();
         }
         
         //Titan
         if (Vector3. Distance(gameObject.transform.position, Titan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasTitan.SetActive(true);
+            TitanSound.Play();
         }
         
         if (Vector3. Distance(gameObject.transform.position, Titan.transform.position) > 5)
         {
             CanvasTitan.SetActive(false);
+            TitanSound.Stop();
         }
         
         //Cave man
         if (Vector3. Distance(gameObject.transform.position, CaveMan.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasCaveMan.SetActive(true);
+            CavemanSound.Play();
         }
         
         if (Vector3. Distance(gameObject.transform.position, CaveMan.transform.position) > 5)
         {
             CanvasCaveMan.SetActive(false);
+            CavemanSound.Stop();
         }
         
         //Troll
         if (Vector3. Distance(gameObject.transform.position, Troll.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasTroll.SetActive(true);
+            TrollSound.Play();
         }
         
         if (Vector3. Distance(gameObject.transform.position, Troll.transform.position) > 5)
         {
             CanvasTroll.SetActive(false);
+            TrollSound.Stop();
+
         }
         
         //Demon girl
         if (Vector3. Distance(gameObject.transform.position, DemonGirl.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasDemonGirl.SetActive(true);
+            DemonGirlSound.Play();
         }
             
         if (Vector3. Distance(gameObject.transform.position, DemonGirl.transform.position) > 5)
         {
             CanvasDemonGirl.SetActive(false);
+            DemonGirlSound.Stop();
         }
         
         //Piggy orc
         if (Vector3. Distance(gameObject.transform.position, PiggyOrc.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasPiggyOrc.SetActive(true);
+            PiggyOrcSound.Play();
         }
             
         if (Vector3. Distance(gameObject.transform.position, PiggyOrc.transform.position) > 5)
         {
             CanvasPiggyOrc.SetActive(false);
+            PiggyOrcSound.Stop();
         }
         
         
@@ -149,11 +172,13 @@ public class DialogController : MonoBehaviour
         if (Vector3. Distance(gameObject.transform.position, WomanWarrior.transform.position) < 5 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasWomanWarrior.SetActive(true);
+            WomanWarriorSound.Play();
         }
             
         if (Vector3. Distance(gameObject.transform.position, WomanWarrior.transform.position) > 5)
         {
             CanvasWomanWarrior.SetActive(false);
+            WomanWarriorSound.Stop();
         }
     }
 }
