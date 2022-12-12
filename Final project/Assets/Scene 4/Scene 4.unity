@@ -5642,7 +5642,7 @@ Animator:
   m_GameObject: {fileID: 1809181004}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: db6ac2463a4ad4b8cacfb1c51c8f8df4, type: 2}
+  m_Controller: {fileID: 9100000, guid: a767c2ce4e5034508967154a5403108a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6166,9 +6166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1818406269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6181,13 +6182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!114 &1818406270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6200,9 +6202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1818406271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6215,13 +6218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!114 &1818406272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6234,9 +6238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1818406273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6249,13 +6254,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!1001 &1828008319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6690,9 +6696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1828008326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6705,13 +6712,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!114 &1828008327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6724,9 +6732,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1828008328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6739,13 +6748,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!114 &1828008329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6758,9 +6768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba53ba516210a46f4951089b0adacd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CannonExplosion: {fileID: 0}
   Smoke: {fileID: 0}
-  Explosion: {fileID: 0}
-  CannonDestroyed: {fileID: 0}
+  Explosion1: {fileID: 0}
+  Cannon1Destroyed: {fileID: 0}
 --- !u!114 &1828008330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6773,13 +6784,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 5db0eaf3ca18e814389125a36467576f, type: 2}
-  _agent: {fileID: 0}
-  Enemy: {fileID: 0}
-  Zorlik: {fileID: 0}
+  Monster1Collider: {fileID: 0}
+  Monster1Material: {fileID: 0}
+  Monster1Agent: {fileID: 0}
+  Monster1: {fileID: 0}
+  Monster1Animator: {fileID: 0}
+  Monster1Fire: {fileID: 0}
   Health: 100
   InAttackRange: 0
-  enemyFire1: {fileID: 0}
 --- !u!1001 &1850748124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7413,7 +7425,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040647681}
-  m_LocalRotation: {x: 0.17530358, y: -0.25452092, z: 0.046972457, w: 0.94988495}
+  m_LocalRotation: {x: 0.17530356, y: -0.2545209, z: 0.046972435, w: 0.94988495}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

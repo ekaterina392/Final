@@ -23833,7 +23833,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: af2cbb2c89f1f4d6fbba4d781cc17e51, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.538
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24370,6 +24370,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 572752089}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &573568552
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &577299593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37744,7 +37781,8 @@ MonoBehaviour:
     are too weak. You are just a human.
 
 
-    So, you have to become something more...'
+    So, you have to become something more
+    to save her...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d96c3ee54dda44e48ed304a96bd5061, type: 2}
   m_sharedMaterial: {fileID: 2134156799907612307, guid: 0d96c3ee54dda44e48ed304a96bd5061,
@@ -60012,7 +60050,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21b5831e132314751befd3de8d248c36, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.434
+  m_Volume: 0.292
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -84353,7 +84391,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0e5030f9a257f4b1383a793e7baa2ddf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.588
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -93050,7 +93088,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8dfd52796c2fb4147a3005b051eceb6d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.688
   m_Pitch: 1
   Loop: 0
   Mute: 0
