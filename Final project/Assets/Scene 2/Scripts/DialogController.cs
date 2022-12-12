@@ -69,6 +69,11 @@ public class DialogController : MonoBehaviour
     
     void Update ()
     {
+        if (GameObject.FindGameObjectWithTag("Ingredient") == null)
+        {
+            Destroy(Instructions);
+        }
+
         if (CanvasStart == null)
         {
             Instructions.SetActive(true);
