@@ -19,6 +19,18 @@ public class EnemyAttacked : MonoBehaviour
     public ParticleSystem Monster1Fire;
     public int Health1 = 100;
     
+    //Monster1
+    public AudioSource MonsterSound2;
+    public AudioSource EnemyFireSound2;
+    public Collider Monster2Collider;
+    public Material Monster2Material;
+    public NavMeshAgent Monster2Agent;
+    public GameObject Monster2;
+    public Animator Monster2Animator;
+    public ParticleSystem Monster2Fire;
+    public int Health2 = 100;
+
+    
     int Damage = 2;
     public bool InAttackRange;
     
@@ -26,6 +38,9 @@ public class EnemyAttacked : MonoBehaviour
     {
         //Monster1
         Monster1Material.SetColor("_BaseColor", Color.white);
+        
+        //Monster2
+        Monster2Material.SetColor("_BaseColor", Color.white);
     }
 
     private void Update()
@@ -42,7 +57,31 @@ public class EnemyAttacked : MonoBehaviour
             Monster1Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster1Fire);
             Destroy(MonsterSound1);
-            Monster1Collider.enabled = false;
+            
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+                Monster1Collider.enabled = false;
+            }
+            StartCoroutine(ExecuteAfterTime(2));
+        }
+        
+        //Monster2
+        if (Health2 <= 0)
+        {
+            Monster2Animator.SetBool("dead", true);
+            Monster2.GetComponent<Guard>().enabled = false;
+            Monster2.GetComponent<PathUtils>().enabled = false;
+            Monster2Agent.speed = 0f;
+            Monster2Material.SetColor("_BaseColor", Color.grey);
+            Destroy(Monster2Fire);
+            Destroy(MonsterSound2);
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+                Monster2Collider.enabled = false;
+            }
+            StartCoroutine(ExecuteAfterTime(2));        
         }
     }
 
@@ -64,13 +103,41 @@ public class EnemyAttacked : MonoBehaviour
             }
             StartCoroutine(ExecuteAfterTime(10));
         }
+        
+        //Monster2
+        if (collision.CompareTag("Monster2"))
+        {
+            EnemyFireSound2.Play();
+            InAttackRange = true;
+            StartCoroutine(HurtEnemy2());
+            CreateParticlesMonster2();
+            
+            IEnumerator ExecuteAfterTime(float time)
+            {
+                yield return new WaitForSeconds(time);
+                StopParticlesMonster2();
+                EnemyFireSound2.Stop();
+            }
+            StartCoroutine(ExecuteAfterTime(10));
+        }
     }
     
+    //Monster1
     IEnumerator HurtEnemy()
     {
         while (true && InAttackRange == true)
         {
             Health1 -= Damage;
+            yield return new WaitForSeconds(3f);
+        }
+    }
+    
+    //Monster2
+    IEnumerator HurtEnemy2()
+    {
+        while (true && InAttackRange == true)
+        {
+            Health2 -= Damage;
             yield return new WaitForSeconds(3f);
         }
     }
@@ -84,6 +151,17 @@ public class EnemyAttacked : MonoBehaviour
     void StopParticlesMonster1()
     {
         Monster1Fire.Stop();
+    }
+    
+    //Monster2
+    void CreateParticlesMonster2()
+    {
+        Monster2Fire.Play();
+    }
+    
+    void StopParticlesMonster2()
+    {
+        Monster2Fire.Stop();
     }
 
 
