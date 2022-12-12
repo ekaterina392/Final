@@ -69,6 +69,8 @@ public class PlayerHealth : MonoBehaviour
         {
             GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
 
+            hitFly.Play();
+
             Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
@@ -139,6 +141,8 @@ public class PlayerHealth : MonoBehaviour
             DragonAnimator.ResetTrigger("walk");
             
             DragonAnimator.SetBool("hit1", true);
+            hitFly.Play();
+
         }
         
         if (collision.transform.tag == "Projectile" && isGrounded == false)

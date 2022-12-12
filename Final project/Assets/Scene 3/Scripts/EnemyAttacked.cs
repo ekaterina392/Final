@@ -8,6 +8,8 @@ using UnityEngine.AI;
 
 public class EnemyAttacked : MonoBehaviour
 {
+    public AudioSource MonsterSound1;
+    public AudioSource EnemyFireSound1;
     //Monster1
     public Collider Monster1Collider;
     public Material Monster1Material;
@@ -19,7 +21,7 @@ public class EnemyAttacked : MonoBehaviour
     
     public int Health = 100;
     
-    int Damage = 1;
+    int Damage = 2;
     
     //Here should go sounds
 
@@ -45,6 +47,7 @@ public class EnemyAttacked : MonoBehaviour
             Monster1Agent.speed = 0f;
             Monster1Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster1Fire);
+            Destroy(MonsterSound1);
 
             //Collider
             Monster1Collider.enabled = false;
@@ -55,6 +58,7 @@ public class EnemyAttacked : MonoBehaviour
     {
         if (collision.CompareTag("Monster1"))
         {
+            EnemyFireSound1.Play();
             InAttackRange = true;
             StartCoroutine(HurtEnemy());
             CreateParticlesMonster1();
@@ -64,6 +68,7 @@ public class EnemyAttacked : MonoBehaviour
             {
                 yield return new WaitForSeconds(time);
                 StopParticlesMonster1();
+                EnemyFireSound1.Stop();
             }
             
             StartCoroutine(ExecuteAfterTime(10));
