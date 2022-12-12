@@ -8,29 +8,23 @@ using UnityEngine.AI;
 
 public class EnemyAttacked : MonoBehaviour
 {
+    //Monster1
     public AudioSource MonsterSound1;
     public AudioSource EnemyFireSound1;
-    //Monster1
     public Collider Monster1Collider;
     public Material Monster1Material;
     public NavMeshAgent Monster1Agent;
-
     public GameObject Monster1;
     public Animator Monster1Animator;
     public ParticleSystem Monster1Fire;
-    
-    public int Health = 100;
+    public int Health1 = 100;
     
     int Damage = 2;
-    
-    //Here should go sounds
-
     public bool InAttackRange;
     
-
-
     private void Awake()
     {
+        //Monster1
         Monster1Material.SetColor("_BaseColor", Color.white);
     }
 
@@ -38,24 +32,23 @@ public class EnemyAttacked : MonoBehaviour
     {
         InAttackRange = false;
         
-        if (Health <= 0)
+        //Monster1
+        if (Health1 <= 0)
         {
             Monster1Animator.SetBool("dead", true);
-            //disable player controller script
             Monster1.GetComponent<Guard>().enabled = false;
             Monster1.GetComponent<PathUtils>().enabled = false;
             Monster1Agent.speed = 0f;
             Monster1Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster1Fire);
             Destroy(MonsterSound1);
-
-            //Collider
             Monster1Collider.enabled = false;
         }
     }
 
     private void OnParticleCollision(GameObject collision)
     {
+        //Monster1
         if (collision.CompareTag("Monster1"))
         {
             EnemyFireSound1.Play();
@@ -63,14 +56,12 @@ public class EnemyAttacked : MonoBehaviour
             StartCoroutine(HurtEnemy());
             CreateParticlesMonster1();
             
-            //Timer
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
                 StopParticlesMonster1();
                 EnemyFireSound1.Stop();
             }
-            
             StartCoroutine(ExecuteAfterTime(10));
         }
     }
@@ -79,11 +70,12 @@ public class EnemyAttacked : MonoBehaviour
     {
         while (true && InAttackRange == true)
         {
-            Health -= Damage;
+            Health1 -= Damage;
             yield return new WaitForSeconds(3f);
         }
     }
 
+    //Monster1
     void CreateParticlesMonster1()
     {
         Monster1Fire.Play();

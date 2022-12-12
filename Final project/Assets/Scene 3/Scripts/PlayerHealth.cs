@@ -8,25 +8,18 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public AudioSource hitFly;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
-
     public Animator DragonAnimator;
-
     public GameObject Player;
     public int Health = 100;
     int Damage = 10;
     public GameObject HealthDisplay;
-    
-    //Here should go sounds
-
     public GameObject EndMenu;
     public bool InAttackRange = false;
     
-
     private void Awake()
     {
         EndMenu.SetActive(false);
@@ -41,7 +34,6 @@ public class PlayerHealth : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
             DragonAnimator.ResetTrigger("walk");
         }
-        //InAttackRange = false;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -57,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
             Cursor.visible = true;
             Screen.lockCursor = false;
         }
-
     }
 
     //Enemy hit
@@ -65,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
     {
         InAttackRange = false;
 
+        //Monster1
         if (collision.transform.tag == "Monster1")
         {
             GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
@@ -74,42 +66,12 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
-            //DragonAnimator.ResetTrigger("idle");
-            //DragonAnimator.ResetTrigger("walk");
-            
             DragonAnimator.SetBool("hit1", true);
-
-            //DragonAnimator.SetTrigger("hit2");
         }
-        
-        /*
-        if (collision.transform.tag == "Projectile" && isGrounded == false)
-        {
-            InAttackRange = true;
-            StartCoroutine(HurtPlayer());
-            Destroy(GameObject.FindGameObjectWithTag("Projectile"));
-
-            DragonAnimator.SetTrigger("hitFly");
-            //DragonAnimator.ResetTrigger("walk");
-        }
-        
-        if (collision.transform.tag == "Projectile")
-        {
-            InAttackRange = true;
-            StartCoroutine(HurtPlayer());
-            Destroy(GameObject.FindGameObjectWithTag("Projectile"));
-
-            DragonAnimator.SetTrigger("hit2");
-            //DragonAnimator.ResetTrigger("walk");
-        } */
-        
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
-
-        //DragonAnimator.ResetTrigger("hit2");
         DragonAnimator.ResetTrigger("hitFly");
         InAttackRange = false;
         DragonAnimator.SetBool("hit1", false);

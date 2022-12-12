@@ -12,11 +12,13 @@ public class CannonAttacked : MonoBehaviour
     
     private void Awake()
     {
+        //Cannon1
         Cannon1Destroyed.SetActive(false);
     }
     
     private void OnParticleCollision(GameObject collision)
     {
+        //Cannon1
         if (collision.gameObject.name == "Cannon1")
         {
             Debug.Log("cannon1");
@@ -29,6 +31,7 @@ public class CannonAttacked : MonoBehaviour
         }
     }
 
+    //Cannon1
     void CreateParticles()
     {
         Explosion1.Play();
