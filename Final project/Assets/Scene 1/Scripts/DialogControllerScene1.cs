@@ -9,6 +9,7 @@ public class DialogControllerScene1 : MonoBehaviour
     public GameObject Text;
     public GameObject Button;
 
+    public AudioSource BackgroundMusic;
     public AudioSource DoorSound;
     public AudioSource Scream;
 
@@ -57,6 +58,7 @@ public class DialogControllerScene1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            BackgroundMusic.Stop();
             CanvasPressE.SetActive(true);
             Destroy(CanvasGirl);
             Knocking.Play();
