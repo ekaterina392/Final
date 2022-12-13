@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class IngredientsController : MonoBehaviour
 {
+
     //Sounds
     public AudioSource IngredientDroppedSound;
     public AudioSource ExplosionSound;
@@ -32,6 +32,20 @@ public class IngredientsController : MonoBehaviour
         Potion.SetActive(false);
         CanvasEnd.SetActive(false);
     }
+    
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("Ingredient") == null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Cauldron"));
+            CreateParticles();
+            Potion.SetActive(true);
+            ExplosionSound.Play();
+            PotionSound.PlayDelayed(1);
+            CanvasEnd.SetActive(true);
+            Debug.Log("Destroyed");
+        }
+    }
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -55,25 +69,6 @@ public class IngredientsController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (GameObject.FindGameObjectWithTag("Ingredient") == null)
-        {
-            Destroy(GameObject.FindGameObjectWithTag("Cauldron"));
-            CreateParticles();
-            Potion.SetActive(true);
-            ExplosionSound.Play();
-            PotionSound.PlayDelayed(1);
-            CanvasEnd.SetActive(true);
-        }
-        
-        
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene("Scene 3");
-        }
-    }
-    
     void CreateParticles()
     {
         Explosion.Play();

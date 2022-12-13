@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogController : MonoBehaviour
 {
+    public GameObject Potion;
+    
+    //Sounds
     public AudioSource CrabSound;
     public AudioSource TitanSound;
     public AudioSource CavemanSound;
@@ -69,6 +73,12 @@ public class DialogController : MonoBehaviour
     
     void Update ()
     {
+        //End game
+        if (GameObject.FindGameObjectWithTag("Ingredient") == null && Vector3. Distance(gameObject.transform.position, Potion.transform.position) < 3 && Input.GetKeyDown(KeyCode.O))
+        {
+            SceneManager.LoadScene("Scene 3");
+        }
+        
         if (GameObject.FindGameObjectWithTag("Ingredient") == null)
         {
             Destroy(Instructions);
