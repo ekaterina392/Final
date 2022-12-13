@@ -34990,7 +34990,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.18862437, y: 0.6814843, z: -0.18862434, w: 0.68148434}
+  m_LocalRotation: {x: 0.18862438, y: 0.6814843, z: -0.18862437, w: 0.68148434}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66953,7 +66953,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869249085}
-  m_LocalRotation: {x: 0.16374503, y: 0.6878863, z: -0.163745, w: 0.68788636}
+  m_LocalRotation: {x: 0.16374499, y: 0.6878863, z: -0.16374502, w: 0.6878863}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -67481,8 +67481,8 @@ MonoBehaviour:
   camera: {fileID: 1931258223}
   speed: 20
   turnSmoothTime: 0.1
-  gravity: -10
-  jumpHeight: 10
+  gravity: -3
+  jumpHeight: 25
   groundCheck: {fileID: 797582117}
   groundDistance: 1.3
   groundMask:
