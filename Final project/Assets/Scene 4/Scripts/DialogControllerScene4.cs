@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 
 public class DialogControllerScene4 : MonoBehaviour
 {
+    public GameObject Trigger;
     public Transform DragonTransform;
     
     public GameObject CanvasPressF;
@@ -42,16 +43,14 @@ public class DialogControllerScene4 : MonoBehaviour
             //disable player controller script
             Dragon.GetComponent<ThirdPersonMovementScene4>().enabled = false;
             
-            //After ... seconds pass
-            IEnumerator ExecuteAfterTime(float time)
-            {
-                yield return new WaitForSeconds(time);
- 
-                Destroy(CanvasEvil);
-            }
-            
-            StartCoroutine(ExecuteAfterTime(3));
+            Destroy(Trigger);
         }
+
+        if (Trigger == null && Input.GetKeyDown(KeyCode.Q))
+        {
+            Destroy(CanvasEvil);
+        }
+
 
         if (CanvasEvil == null)
         {

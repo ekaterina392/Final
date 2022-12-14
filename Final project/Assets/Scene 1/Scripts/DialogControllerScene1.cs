@@ -56,7 +56,7 @@ public class DialogControllerScene1 : MonoBehaviour
             Destroy(CanvasPressT);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (CanvasPressT == null && Input.GetKeyDown(KeyCode.Q))
         {
             BackgroundMusic.Stop();
             CanvasPressE.SetActive(true);
