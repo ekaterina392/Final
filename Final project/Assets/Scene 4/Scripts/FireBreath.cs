@@ -29,7 +29,12 @@ public class FireBreath : MonoBehaviour
     
     void Update()
     {
-        DragonAnimator.SetBool("fire", false);
+        if (fireBreath == null)
+        {
+            DragonAnimator.SetBool("fire", false);
+            DragonAnimator.SetTrigger("idle");
+
+        }
 
         DragonAnimator.ResetTrigger("walk");
         DragonAnimator.SetTrigger("idle");
@@ -75,7 +80,7 @@ public class FireBreath : MonoBehaviour
                 yield return new WaitForSeconds(time);
                 TheEnd.SetActive(true);
             }
-            StartCoroutine(ExecuteAfterTime(10));
+            StartCoroutine(ExecuteAfterTime(9));
         }
         
         /*

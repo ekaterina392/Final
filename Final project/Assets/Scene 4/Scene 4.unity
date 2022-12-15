@@ -938,7 +938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130454301}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.9512538, z: -9.3}
+  m_LocalPosition: {x: 0, y: 0.9512538, z: -1.288}
   m_LocalScale: {x: 0.45612124, y: 0.45612124, z: 0.45612124}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -956,7 +956,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.3235757
+  m_Radius: 0.10636447
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &136584808
 GameObject:
@@ -1577,7 +1577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_RootOrder
@@ -1597,15 +1597,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.66
+      value: -8.12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.64
+      value: -11.52
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.61
+      value: 49.13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a817de05addd7b64faa73b34c74013ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10543,6 +10543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58efd299725de46d78118e9e9dc79e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cooldown: 15
+  CooldownCountdown: 0
   TheEnd: {fileID: 976687643}
   CanvasEvil: {fileID: 639096638}
   fireBreath: {fileID: 1818406267}
