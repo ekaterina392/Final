@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     int Damage = 10;
     public GameObject HealthDisplay;
     public GameObject EndMenu;
+    public GameObject Instructions;
     public bool InAttackRange = false;
     
     private void Awake()
@@ -42,12 +44,19 @@ public class PlayerHealth : MonoBehaviour
             HealthDisplay.GetComponent<TMP_Text>().text = "" + "0";
             Time.timeScale = 0;
             EndMenu.SetActive(true);
-            
+            Instructions.SetActive(false);
+
             //disable player controller script
             Player.GetComponent<ThirdPersonMovement>().enabled = false;
             
             Cursor.visible = true;
             Screen.lockCursor = false;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("Scene 3");
+                Time.timeScale = 1;
+            }
         }
     }
 
