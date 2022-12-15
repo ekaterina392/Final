@@ -23,6 +23,10 @@ TagManager:
   - Monster3
   - Constraint
   - Castle
+  - Destroyed
+  - Destroyed1
+  - Destroyed2
+  - Destroyed3
   layers:
   - Default
   - TransparentFX

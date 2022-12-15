@@ -19,12 +19,12 @@ public class EndGame : MonoBehaviour
     void Update()
     {
         //Type ALL cannons and enemies here
-        if (GameObject.FindGameObjectWithTag("Cannon1") == null)
+        if (GameObject.FindGameObjectWithTag("Cannon1") == null && GameObject.FindGameObjectWithTag("Destroyed1") == null && GameObject.FindGameObjectWithTag("Destroyed2") == null && GameObject.FindGameObjectWithTag("Destroyed3") == null)
         {
-            Debug.Log("all enemies are destoroyed");
+            Debug.Log("all enemies are destroyed");
             CanvasEnd.SetActive(true);
             Constraint.SetActive(false);
-            Instructions.SetActive(false);
+            Destroy(Instructions);        
         }
     }
 

@@ -432,7 +432,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1895080939}
-  m_RootOrder: 3
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &42873666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42873667}
+  m_Layer: 0
+  m_Name: Destroyed3
+  m_TagString: Destroyed3
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42873667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42873666}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -439.81528, y: -16.739807, z: 169.92462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1895080939}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &46308643
 GameObject:
@@ -2154,7 +2185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1895080939}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142175207
 GameObject:
@@ -9598,6 +9629,37 @@ Transform:
   m_Father: {fileID: 734732657}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &422846572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422846573}
+  m_Layer: 0
+  m_Name: Destroyed2
+  m_TagString: Destroyed2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422846573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422846572}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1047.8153, y: -61.239807, z: 323.5246}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1606580842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428727215
 GameObject:
   m_ObjectHideFlags: 0
@@ -11344,7 +11406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606580842}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527858716
 GameObject:
@@ -21888,7 +21950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1895080939}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &655332372
 PrefabInstance:
@@ -25043,7 +25105,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180878014}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872371922
 GameObject:
@@ -25551,7 +25613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180878014}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &913352520
 PrefabInstance:
@@ -25764,7 +25826,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606580842}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927471476
 GameObject:
@@ -27485,7 +27547,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180878014}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090504013
 GameObject:
@@ -28384,6 +28446,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1470263540}
   - {fileID: 4356533275720413}
   - {fileID: 869285856}
   - {fileID: 1721734480}
@@ -30021,7 +30084,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1895080939}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1391793706
 PrefabInstance:
@@ -35503,6 +35566,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1468223071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1470263539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1470263540}
+  m_Layer: 0
+  m_Name: Destroyed1
+  m_TagString: Destroyed1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1470263540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470263539}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.944063, y: -3.3746948, z: 28.70636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1180878014}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1479073341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36385,6 +36479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Destroyed1: {fileID: 1470263539}
   MonsterSound1: {fileID: 95266058301425551}
   EnemyFireSound1: {fileID: 1578605953}
   Monster1Collider: {fileID: 95266058301425549}
@@ -36394,6 +36489,7 @@ MonoBehaviour:
   Monster1Animator: {fileID: 95266058301425545}
   Monster1Fire: {fileID: 600472696}
   Health1: 100
+  Destroyed2: {fileID: 422846572}
   MonsterSound2: {fileID: 2032303995}
   EnemyFireSound2: {fileID: 1843959730}
   Monster2Collider: {fileID: 2032303999}
@@ -36403,6 +36499,7 @@ MonoBehaviour:
   Monster2Animator: {fileID: 2032304001}
   Monster2Fire: {fileID: 1824950381}
   Health2: 100
+  Destroyed3: {fileID: 42873666}
   MonsterSound3: {fileID: 398689169}
   EnemyFireSound3: {fileID: 652150307}
   Monster3Collider: {fileID: 398689173}
@@ -41338,6 +41435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Destroyed1: {fileID: 1470263539}
   MonsterSound1: {fileID: 95266058301425551}
   EnemyFireSound1: {fileID: 1578605953}
   Monster1Collider: {fileID: 95266058301425549}
@@ -41347,6 +41445,7 @@ MonoBehaviour:
   Monster1Animator: {fileID: 95266058301425545}
   Monster1Fire: {fileID: 600472696}
   Health1: 100
+  Destroyed2: {fileID: 422846572}
   MonsterSound2: {fileID: 2032303995}
   EnemyFireSound2: {fileID: 1843959730}
   Monster2Collider: {fileID: 2032303999}
@@ -41356,6 +41455,7 @@ MonoBehaviour:
   Monster2Animator: {fileID: 2032304001}
   Monster2Fire: {fileID: 1824950381}
   Health2: 100
+  Destroyed3: {fileID: 42873666}
   MonsterSound3: {fileID: 398689169}
   EnemyFireSound3: {fileID: 652150307}
   Monster3Collider: {fileID: 398689173}
@@ -46080,6 +46180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 422846573}
   - {fileID: 2032303994}
   - {fileID: 2065689461}
   - {fileID: 927129288}
@@ -51865,7 +51966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180878014}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722594868
 GameObject:
@@ -68051,7 +68152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606580842}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876133385
 GameObject:
@@ -68221,6 +68322,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 398689168}
+  - {fileID: 42873667}
   - {fileID: 132717202}
   - {fileID: 1389824211}
   - {fileID: 39468330}
@@ -69318,6 +69420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded6c5fcd1de144188dbe1795c59b48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Destroyed1: {fileID: 1470263539}
   MonsterSound1: {fileID: 95266058301425551}
   EnemyFireSound1: {fileID: 1578605953}
   Monster1Collider: {fileID: 95266058301425549}
@@ -69327,6 +69430,7 @@ MonoBehaviour:
   Monster1Animator: {fileID: 95266058301425545}
   Monster1Fire: {fileID: 600472696}
   Health1: 100
+  Destroyed2: {fileID: 422846572}
   MonsterSound2: {fileID: 2032303995}
   EnemyFireSound2: {fileID: 1843959730}
   Monster2Collider: {fileID: 2032303999}
@@ -69336,6 +69440,7 @@ MonoBehaviour:
   Monster2Animator: {fileID: 2032304001}
   Monster2Fire: {fileID: 1824950381}
   Health2: 100
+  Destroyed3: {fileID: 42873666}
   MonsterSound3: {fileID: 398689169}
   EnemyFireSound3: {fileID: 652150307}
   Monster3Collider: {fileID: 398689173}
@@ -70107,7 +70212,7 @@ Transform:
   - {fileID: 1819676800}
   - {fileID: 1998142465}
   m_Father: {fileID: 1606580842}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -69.895, z: 0}
 --- !u!82 &2032303995
 AudioSource:
@@ -70866,7 +70971,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606580842}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066633487
 GameObject:
@@ -72885,7 +72990,7 @@ Transform:
   - {fileID: 4458790258057563}
   - {fileID: 4599921367120303}
   m_Father: {fileID: 1180878014}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -69.895, z: 0}
 --- !u!4 &4358039389019369
 Transform:
