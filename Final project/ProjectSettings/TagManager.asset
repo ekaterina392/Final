@@ -21,6 +21,8 @@ TagManager:
   - Monster
   - Monster2
   - Monster3
+  - Constraint
+  - Castle
   layers:
   - Default
   - TransparentFX

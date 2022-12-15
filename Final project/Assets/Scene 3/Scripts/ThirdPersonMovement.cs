@@ -43,6 +43,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
+    private KeyCode jumpKey2 = KeyCode.Space;
+
     
     /*
     private void OnTriggerEnter(Collider collider)
@@ -117,7 +119,7 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = -2f;
         } */
         
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(jumpKey) || Input.GetKeyDown(jumpKey2))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
