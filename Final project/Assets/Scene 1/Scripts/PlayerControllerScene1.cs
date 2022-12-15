@@ -5,19 +5,13 @@ using UnityEngine;
 public class PlayerControllerScene1 : MonoBehaviour
 {
     public GameObject CanvasPressE;
-
     public AudioSource Footsteps;
-    
     public CharacterController controller;
-    
     public float speed = 12f;
-
     public float gravity = -9.81f;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     private Vector3 velocity;
     private bool isGrounded;
 
@@ -34,7 +28,6 @@ public class PlayerControllerScene1 : MonoBehaviour
         {
             velocity.y = -2f;
         }
-        
         
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");

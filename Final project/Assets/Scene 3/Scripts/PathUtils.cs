@@ -3,14 +3,18 @@ using System.Collections;
 
 namespace Ekaterina {
 
-public class PathUtils : MonoBehaviour {
+public class PathUtils : MonoBehaviour
+{
     private UnityEngine.AI.NavMeshAgent agent;
     private Color c = Color.green;
-    public void Start() {
+    
+    public void Start()
+    {
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent> ();
     }
 
-    public void Update() {
+    public void Update()
+    {
         StartCoroutine(DrawPath(agent.path));
     }
 

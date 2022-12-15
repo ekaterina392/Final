@@ -7,28 +7,17 @@ using UnityEngine.Rendering.Universal;
 public class ThirdPersonMovementScene4 : MonoBehaviour
 {
     public GameObject TheEnd;
-
-
     private Animator DragonAnimator;
-
     public CharacterController controller;
-    
     private float speed = 4;
-
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
-    
-    //Jumping
-    
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     private Vector3 velocity;
-
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
 
@@ -62,7 +51,6 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
             
             DragonAnimator.ResetTrigger("fly");
             DragonAnimator.ResetTrigger("idle");
-
             DragonAnimator.SetTrigger("walk");
         }
 
@@ -72,15 +60,12 @@ public class ThirdPersonMovementScene4 : MonoBehaviour
             DragonAnimator.ResetTrigger("walk");
             DragonAnimator.ResetTrigger("fly");
             DragonAnimator.ResetTrigger("breathFire");
-
             DragonAnimator.SetTrigger("idle");
         }
 
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
     }
 }

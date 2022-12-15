@@ -16,45 +16,25 @@ public class ThirdPersonMovement : MonoBehaviour
     public float CooldownCountdown = 0f;
     
     public ParticleSystem fireBreath;
-
     private Animator DragonAnimator;
-
     public CharacterController controller;
-
     public Transform camera;
-
     public float speed = 20;
     private float Flyspeed = 20;
-
-
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
     
     //Jumping
-    
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     private Vector3 velocity;
-
     private bool isGrounded;
     private KeyCode jumpKey = KeyCode.RightShift;
     private KeyCode jumpKey2 = KeyCode.Space;
 
-    
-    /*
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.name == "cube")
-        {
-            Debug.Log("collision");
-        }
-    } */
-    
     void Start()
     {
         DragonAnimator = gameObject.GetComponent<Animator>();
@@ -80,7 +60,6 @@ public class ThirdPersonMovement : MonoBehaviour
             
             DragonAnimator.ResetTrigger("fly");
             DragonAnimator.ResetTrigger("idle");
-            
             DragonAnimator.SetTrigger("walk");
         }
         
@@ -95,7 +74,6 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * Flyspeed * Time.deltaTime);      
             
             DragonAnimator.ResetTrigger("walk");
-
             DragonAnimator.SetTrigger("fly");
         }
         
@@ -105,20 +83,12 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonAnimator.ResetTrigger("walk");
             DragonAnimator.ResetTrigger("fly");
             DragonAnimator.ResetTrigger("breathFire");
-
             DragonAnimator.SetTrigger("idle");
         }
         
-        
         //Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
-        /*
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        } */
-        
+
         if (Input.GetKeyDown(jumpKey) || Input.GetKeyDown(jumpKey2))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -128,7 +98,6 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             DragonAnimator.ResetTrigger("idle");
             DragonAnimator.ResetTrigger("breathFire");
-
             DragonFootsteps.Stop();
             DragonAnimator.SetTrigger("fly");
         }
@@ -144,14 +113,10 @@ public class ThirdPersonMovement : MonoBehaviour
                 Debug.Log("Registered click");
                 
                 DragonAnimator.ResetTrigger("fly");
-
                 DragonAnimator.SetTrigger("breathFire");
                 CreateParticles();
                 FireBreathSound.Play();
-                
-                //FireBreathSound.Play();
                 DragonFly.Stop();
-                //DragonFly.Pause();
             }
         } else
         {
@@ -168,26 +133,18 @@ public class ThirdPersonMovement : MonoBehaviour
             DragonFly.Play();
         }
         
-        
         //Stops Fly Fire Breath and its sounds if incorrect animation is played
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
             StopParticles();
             FireBreathSound.Stop();
             DragonFootsteps.Play(); //Idk why but it doesnt work properly with "walk"
-            
-            //DragonFly.Play();
-
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
         {
             StopParticles();
             FireBreathSound.Stop();
-            
-            //DragonFly.Stop();
-
-            //DragonFly.Play();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly hit"))
@@ -195,10 +152,7 @@ public class ThirdPersonMovement : MonoBehaviour
             StopParticles();
             FireBreathSound.Stop();
             DragonFootsteps.Stop();
-            
             DragonFly.PlayDelayed(1.23f);
-            
-            //DragonFly.Play();
         }
         
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("fly"))
@@ -221,5 +175,4 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         fireBreath.Stop();
     }
-    
 }

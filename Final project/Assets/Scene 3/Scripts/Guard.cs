@@ -9,30 +9,23 @@ public class Guard : MonoBehaviour
 {
     private Animator Monster;
     public static float speed = 5f;
-
-
     NavMeshAgent _agent;
     public Transform[] targetLocations;
     public Transform playerTarget;
     private int _targetIndex = 0;
     public float sight = 10f;
         
-    // Start is called before the first frame update
     void Start()
     {
         Monster = gameObject.GetComponent<Animator>();
-
         _agent = transform.GetComponent<NavMeshAgent>();
     }
     
-    // Update is called once per frame
     void Update()
     {
         Monster.SetBool("isChasing", false);
         Monster.SetBool("isAttacking", false);
-
         _agent.speed = speed;
-
         int layerMask = 1 << 3;
         if (Vector3.Distance(transform.position,playerTarget.position)<sight 
             && !Physics.Linecast (transform.position, playerTarget.transform.position,layerMask)) {
@@ -47,7 +40,6 @@ public class Guard : MonoBehaviour
             if (Vector3.Distance(transform.position,playerTarget.position)<10f)
             {
                 Monster.SetBool("isAttacking", true);
-                //Zorlik.transform.LookAt(playerTarget);
                 _agent.speed = 0;
             }
         }
@@ -55,7 +47,6 @@ public class Guard : MonoBehaviour
         {
             if (_agent.remainingDistance <= _agent.stoppingDistance)
             {
-
                 if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
                 {
                     GoToNextLocation();
@@ -69,5 +60,4 @@ public class Guard : MonoBehaviour
         _agent.SetDestination(targetLocations[_targetIndex].position);
         _targetIndex = (_targetIndex+ 1) % targetLocations.Length;
     }
-        
 }

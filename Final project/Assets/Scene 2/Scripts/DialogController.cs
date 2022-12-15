@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogController : MonoBehaviour
 {
+    //Potion
     public GameObject Potion;
     
     //Sounds
@@ -22,8 +23,7 @@ public class DialogController : MonoBehaviour
     
     //Instructions canvas
     public GameObject Instructions;
-
-
+    
     //Centaur
     public GameObject CanvasCentaur;
     public GameObject Centaur;
@@ -152,7 +152,6 @@ public class DialogController : MonoBehaviour
         {
             CanvasTroll.SetActive(false);
             TrollSound.Stop();
-
         }
         
         //Demon girl

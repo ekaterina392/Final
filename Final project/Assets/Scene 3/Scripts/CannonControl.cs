@@ -7,14 +7,11 @@ public class CannonControl : MonoBehaviour
 {
     public AudioSource CannonShoot;
     public ParticleSystem Shoot;
-
     public Transform _Player;
     private float distance;
     public float howClose;
     public Transform head, barrel;
-
     public GameObject _projectile;
-
     public float fireRate, nextFire;
 
     private void Update()

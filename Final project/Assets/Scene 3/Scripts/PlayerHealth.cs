@@ -29,11 +29,8 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
-        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 25;
-
         if (InAttackRange == true)
         {
-            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
             DragonAnimator.ResetTrigger("walk");
         }
 
@@ -49,7 +46,6 @@ public class PlayerHealth : MonoBehaviour
             //disable player controller script
             Player.GetComponent<ThirdPersonMovement>().enabled = false;
             
-            Cursor.visible = true;
             Screen.lockCursor = false;
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -68,11 +64,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster1
         if (collision.transform.tag == "Monster1")
         {
-            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
-
             hitFly.Play();
-
-            Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             DragonAnimator.SetBool("hit1", true);
@@ -81,11 +73,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster2
         if (collision.transform.tag == "Monster2")
         {
-            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
-
             hitFly.Play();
-
-            Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             DragonAnimator.SetBool("hit1", true);
@@ -94,11 +82,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster3
         if (collision.transform.tag == "Monster3")
         {
-            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
-
             hitFly.Play();
-
-            Debug.Log("collision");
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
             DragonAnimator.SetBool("hit1", true);
@@ -117,8 +101,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.transform.tag == "Projectile")
         {
-            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
-            
             //Timer
             IEnumerator ExecuteAfterTime(float time)
             {
@@ -126,51 +108,32 @@ public class PlayerHealth : MonoBehaviour
                 //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
             }
             StartCoroutine(ExecuteAfterTime(1.2f));
-            
-            //disable player controller script
-            //Player.GetComponent<ThirdPersonMovement>().enabled = false;
-            
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
-            Debug.Log("!");
-            
             DragonAnimator.ResetTrigger("idle");
             DragonAnimator.ResetTrigger("walk");
-            
             DragonAnimator.SetBool("hit1", true);
             hitFly.Play();
-
         }
         
         if (collision.transform.tag == "Projectile" && isGrounded == false)
         {
             InAttackRange = true;
             StartCoroutine(HurtPlayer());
-            Debug.Log("!");
-            
             DragonAnimator.SetTrigger("hitFly");
             hitFly.Play();
-
         }
     }
     
     //Projectile stop hitting
     void OnCollisionExit(Collision collision)
     {
-        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
-
         InAttackRange = false;
-
-        Debug.Log("exit"); 
         Destroy(collision.gameObject);
-        
         DragonAnimator.SetBool("hit1", false);
-        
         DragonAnimator.ResetTrigger("walk");
         DragonAnimator.ResetTrigger("hit1");
         DragonAnimator.ResetTrigger("hitFly");
-        
-        //Destroy(GameObject.FindGameObjectWithTag("Projectile"));
     }
 
     IEnumerator HurtPlayer()

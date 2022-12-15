@@ -5,7 +5,6 @@ using Ekaterina;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public class MonsterAttacked : MonoBehaviour
 {
     public Material MonsterMaterial;
@@ -21,8 +20,6 @@ public class MonsterAttacked : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            Debug.Log("COLLISION");
-
             MonsterMaterial.SetColor("_BaseColor", Color.grey);
             CreateParticlesMonster();
             
@@ -30,12 +27,9 @@ public class MonsterAttacked : MonoBehaviour
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
-                
                 MonsterAnimator.SetTrigger("dead 0");
             }
-            
             StartCoroutine(ExecuteAfterTime(2));
-
         }
     }
 

@@ -5,12 +5,10 @@ using Ekaterina;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public class EnemyAttacked : MonoBehaviour
 {
     //Monster1
     public GameObject Destroyed1;
-
     public AudioSource MonsterSound1;
     public AudioSource EnemyFireSound1;
     public Collider Monster1Collider;
@@ -23,7 +21,6 @@ public class EnemyAttacked : MonoBehaviour
     
     //Monster2
     public GameObject Destroyed2;
-
     public AudioSource MonsterSound2;
     public AudioSource EnemyFireSound2;
     public Collider Monster2Collider;
@@ -36,7 +33,6 @@ public class EnemyAttacked : MonoBehaviour
     
     //Monster3
     public GameObject Destroyed3;
-
     public AudioSource MonsterSound3;
     public AudioSource EnemyFireSound3;
     public Collider Monster3Collider;
@@ -46,7 +42,6 @@ public class EnemyAttacked : MonoBehaviour
     public Animator Monster3Animator;
     public ParticleSystem Monster3Fire;
     public int Health3 = 100;
-
     
     int Damage = 2;
     public bool InAttackRange;
@@ -71,7 +66,6 @@ public class EnemyAttacked : MonoBehaviour
         if (Health1 <= 0)
         {
             Destroy(Destroyed1);
-
             Monster1Animator.SetBool("dead", true);
             Monster1.GetComponent<Guard>().enabled = false;
             Monster1.GetComponent<PathUtils>().enabled = false;
@@ -92,7 +86,6 @@ public class EnemyAttacked : MonoBehaviour
         if (Health2 <= 0)
         {
             Destroy(Destroyed2);
-
             Monster2Animator.SetBool("dead", true);
             Monster2.GetComponent<Guard>().enabled = false;
             Monster2.GetComponent<PathUtils>().enabled = false;
@@ -100,6 +93,7 @@ public class EnemyAttacked : MonoBehaviour
             Monster2Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster2Fire);
             Destroy(MonsterSound2);
+            
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
@@ -112,7 +106,6 @@ public class EnemyAttacked : MonoBehaviour
         if (Health3 <= 0)
         {
             Destroy(Destroyed3);
-
             Monster3Animator.SetBool("dead", true);
             Monster3.GetComponent<Guard>().enabled = false;
             Monster3.GetComponent<PathUtils>().enabled = false;
@@ -120,6 +113,7 @@ public class EnemyAttacked : MonoBehaviour
             Monster3Material.SetColor("_BaseColor", Color.grey);
             Destroy(Monster3Fire);
             Destroy(MonsterSound3);
+            
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
@@ -245,6 +239,4 @@ public class EnemyAttacked : MonoBehaviour
     {
         Monster3Fire.Stop();
     }
-
-
 }

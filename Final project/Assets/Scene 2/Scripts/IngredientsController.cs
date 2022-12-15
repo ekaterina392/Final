@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IngredientsController : MonoBehaviour
 {
-
     //Sounds
     public AudioSource IngredientDroppedSound;
     public AudioSource ExplosionSound;
@@ -43,7 +42,6 @@ public class IngredientsController : MonoBehaviour
             ExplosionSound.Play();
             PotionSound.PlayDelayed(1);
             CanvasEnd.SetActive(true);
-            Debug.Log("Destroyed");
         }
     }
 
@@ -54,13 +52,11 @@ public class IngredientsController : MonoBehaviour
             Destroy(Crystal);
             CreateIngredientDropped();
             IngredientDroppedSound.Play();
-            
         } else if (collider.gameObject.name == "prop_skull")
         {
             Destroy(Skull);
             CreateIngredientDropped();
             IngredientDroppedSound.Play();
-
         } else if (collider.gameObject.name == "Egg")
         {
             Destroy(Egg);

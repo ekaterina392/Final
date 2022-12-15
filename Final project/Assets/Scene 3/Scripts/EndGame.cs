@@ -18,10 +18,8 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        //Type ALL cannons and enemies here
         if (GameObject.FindGameObjectWithTag("Cannon1") == null && GameObject.FindGameObjectWithTag("Destroyed1") == null && GameObject.FindGameObjectWithTag("Destroyed2") == null && GameObject.FindGameObjectWithTag("Destroyed3") == null)
         {
-            Debug.Log("all enemies are destroyed");
             CanvasEnd.SetActive(true);
             Constraint.SetActive(false);
             Destroy(Instructions);        
@@ -30,7 +28,6 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        //Monster1
         if (collision.gameObject.name == "Dragon")
         {
             SceneManager.LoadScene("Scene 4");

@@ -13,9 +13,7 @@ public class FireBreath : MonoBehaviour
     public AudioSource MonsterScream;
     public AudioSource FireBreath2;
     public AudioSource WomanCry;
-
-
-
+    
     //Default to 3 second cooldown
     public float Cooldown = 3f;
  
@@ -24,7 +22,6 @@ public class FireBreath : MonoBehaviour
     
     public GameObject TheEnd;
     public GameObject Button;
-
     public GameObject CanvasEvil;
     public ParticleSystem fireBreath;
     private Animator DragonAnimator;
@@ -46,7 +43,6 @@ public class FireBreath : MonoBehaviour
         {
             DragonAnimator.SetBool("fire", false);
             DragonAnimator.SetTrigger("idle");
-
         }
 
         DragonAnimator.ResetTrigger("walk");
@@ -59,20 +55,13 @@ public class FireBreath : MonoBehaviour
             {
                 //reset the cooldown timer
                 CooldownCountdown = Cooldown;
-                
-                //print a message to the console
-                Debug.Log("Registered click");
-                
+
                 FireBreath2.PlayDelayed(0.3f);
-                
                 MonsterFire.PlayDelayed(2);
                 MonsterScream.PlayDelayed(3.5f);
-                
                 DragonAnimator.SetBool("fire", true);
-            
                 DragonAnimator.ResetTrigger("walk");
                 DragonAnimator.ResetTrigger("idle");
-            
                 CreateParticles();
             }
         } else
@@ -81,7 +70,6 @@ public class FireBreath : MonoBehaviour
             CooldownCountdown -= Time.deltaTime;
         }
         
-
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("breath fire"))
         {
             //Stop Particles
@@ -92,11 +80,9 @@ public class FireBreath : MonoBehaviour
             }
             StartCoroutine(ExecuteAfterTime2(2));
             
-            //Here scene will change
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
-                
                 TheEnd.SetActive(true);
                 BackgroundMusic.Stop();
                 MonsterFire.Stop();
@@ -110,19 +96,16 @@ public class FireBreath : MonoBehaviour
             IEnumerator ExecuteAfterTime3(float time)
             {
                 yield return new WaitForSeconds(time);
-                
                 Button.SetActive(true);
                 Destroy(RestartTrigger);
             }
             StartCoroutine(ExecuteAfterTime3(18));
-            
         }
 
         if (RestartTrigger == null && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Scene 0");
         }
-
     }
     
     void CreateParticles()
