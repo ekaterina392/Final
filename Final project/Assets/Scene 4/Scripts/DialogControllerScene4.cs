@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 
 public class DialogControllerScene4 : MonoBehaviour
 {
+    public AudioSource MonsterLaugh;
+
     public GameObject Trigger;
     public Transform DragonTransform;
     
@@ -28,8 +30,11 @@ public class DialogControllerScene4 : MonoBehaviour
 
     void Update()
     {
+
+        
         if (Vector3. Distance(gameObject.transform.position, Monster.transform.position) < 10 && CanvasEvil != null)
         {
+            
             Cinemachine.LookAt = MonsterCamera;
             Cinemachine.Follow = MonsterCamera;
             
@@ -44,6 +49,9 @@ public class DialogControllerScene4 : MonoBehaviour
             Dragon.GetComponent<ThirdPersonMovementScene4>().enabled = false;
             
             Destroy(Trigger);
+            
+            MonsterLaugh.Play();
+
         }
 
         if (Trigger == null && Input.GetKeyDown(KeyCode.Q))

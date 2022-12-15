@@ -6,6 +6,14 @@ using UnityEngine.Rendering.Universal;
 
 public class FireBreath : MonoBehaviour
 {
+    public AudioSource BackgroundMusic;
+    public AudioSource MonsterFire;
+    public AudioSource MonsterScream;
+    public AudioSource FireBreath2;
+    public AudioSource WomanCry;
+
+
+
     //Default to 3 second cooldown
     public float Cooldown = 3f;
  
@@ -13,12 +21,15 @@ public class FireBreath : MonoBehaviour
     public float CooldownCountdown = 0f;
     
     public GameObject TheEnd;
+    public GameObject Button;
+
     public GameObject CanvasEvil;
     public ParticleSystem fireBreath;
     private Animator DragonAnimator;
 
     private void Awake()
     {
+        Button.SetActive(false);
         TheEnd.SetActive(false);
     }
 
@@ -50,6 +61,11 @@ public class FireBreath : MonoBehaviour
                 //print a message to the console
                 Debug.Log("Registered click");
                 
+                FireBreath2.PlayDelayed(0.3f);
+                
+                MonsterFire.PlayDelayed(2);
+                MonsterScream.PlayDelayed(3.5f);
+                
                 DragonAnimator.SetBool("fire", true);
             
                 DragonAnimator.ResetTrigger("walk");
@@ -78,9 +94,25 @@ public class FireBreath : MonoBehaviour
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
+                
                 TheEnd.SetActive(true);
+                BackgroundMusic.Stop();
+                MonsterFire.Stop();
+                MonsterScream.Stop();
+                FireBreath2.Stop();
+                WomanCry.Stop();
             }
             StartCoroutine(ExecuteAfterTime(9));
+            
+            //Here scene will change
+            IEnumerator ExecuteAfterTime3(float time)
+            {
+                yield return new WaitForSeconds(time);
+                
+                Button.SetActive(true);
+            }
+            StartCoroutine(ExecuteAfterTime3(18));
+            
         }
         
         /*
