@@ -8856,6 +8856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CannonShoot: {fileID: 33981117495194492}
   Shoot: {fileID: 1190017051}
+  _Player: {fileID: 1637517217}
   howClose: 360
   head: {fileID: 6471192676374101491}
   barrel: {fileID: 1219510596409983876}
