@@ -73,7 +73,7 @@ public class DialogController : MonoBehaviour
     void Update ()
     {
         //End game
-        if (GameObject.FindGameObjectWithTag("Ingredient") == null && Vector3. Distance(gameObject.transform.position, Potion.transform.position) < 3 && Input.GetKeyDown(KeyCode.O))
+        if (GameObject.FindGameObjectWithTag("Ingredient") == null && Vector3. Distance(gameObject.transform.position, Potion.transform.position) < 3 && Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene("Scene 3");
         }
@@ -103,13 +103,13 @@ public class DialogController : MonoBehaviour
         }
     
         //Crab
-        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) < 3 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
+        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) < 4 && Input.GetKeyDown(KeyCode.T) && CanvasStart == null)
         {
             CanvasCrab.SetActive(true);
             CrabSound.Play();
         }
         
-        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) > 3)
+        if (Vector3. Distance(gameObject.transform.position, Crab.transform.position) > 4)
         {
             CanvasCrab.SetActive(false);
             CrabSound.Stop();
