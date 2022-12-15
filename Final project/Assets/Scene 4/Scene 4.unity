@@ -7976,7 +7976,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Hello, fool! You have destroyed my army and you may even kill me but she
-    will never be with you again! Look at the mirror. You are a monster and nothing
+    will never be with you again! Look in the mirror. You are a monster and nothing
     will ever change it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d96c3ee54dda44e48ed304a96bd5061, type: 2}
@@ -13030,12 +13030,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'That monster was wrong. Sarah had''t rejected John. It didn''t matter
+  m_text: 'That monster was wrong. Sarah hadn''t rejected John. It didn''t matter
     how he looked. It mattered that he saved her.
 
 
-    They flied away far, and
-    no one saw them ever again...'
+    They flew away far, and no
+    one saw them ever again...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d96c3ee54dda44e48ed304a96bd5061, type: 2}
   m_sharedMaterial: {fileID: 2134156799907612307, guid: 0d96c3ee54dda44e48ed304a96bd5061,

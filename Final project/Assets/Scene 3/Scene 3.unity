@@ -35157,7 +35157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Burn down all the enemies and destroy all cannons!
+  m_text: Burn down three monsters and destroy one cannon to finish the level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d96c3ee54dda44e48ed304a96bd5061, type: 2}
   m_sharedMaterial: {fileID: 2134156799907612307, guid: 0d96c3ee54dda44e48ed304a96bd5061,
@@ -35797,7 +35797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506281274}
-  m_LocalRotation: {x: 0.17058623, y: 0.68622184, z: -0.17058626, w: 0.6862218}
+  m_LocalRotation: {x: 0.17058624, y: 0.6862218, z: -0.17058621, w: 0.68622184}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -67936,7 +67936,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869249085}
-  m_LocalRotation: {x: 0.14554669, y: 0.6919654, z: -0.14554669, w: 0.69196546}
+  m_LocalRotation: {x: 0.1455467, y: 0.69196546, z: -0.14554669, w: 0.6919654}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
