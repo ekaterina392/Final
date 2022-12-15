@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class FireBreath : MonoBehaviour
 {
+    public GameObject RestartTrigger;
     public AudioSource BackgroundMusic;
     public AudioSource MonsterFire;
     public AudioSource MonsterScream;
@@ -110,18 +112,16 @@ public class FireBreath : MonoBehaviour
                 yield return new WaitForSeconds(time);
                 
                 Button.SetActive(true);
+                Destroy(RestartTrigger);
             }
             StartCoroutine(ExecuteAfterTime3(18));
             
         }
-        
-        /*
-        //Stops Fly Fire Breath and its sounds if incorrect animation is played
-        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-        {
-            StopParticles();
 
-        } */
+        if (RestartTrigger == null && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Scene 0");
+        }
 
     }
     
