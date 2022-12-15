@@ -6,6 +6,12 @@ using UnityEngine.Rendering.Universal;
 
 public class FireBreath : MonoBehaviour
 {
+    //Default to 3 second cooldown
+    public float Cooldown = 3f;
+ 
+    //Used as a count down timer
+    public float CooldownCountdown = 0f;
+    
     public GameObject TheEnd;
     public GameObject CanvasEvil;
     public ParticleSystem fireBreath;
@@ -23,39 +29,72 @@ public class FireBreath : MonoBehaviour
     
     void Update()
     {
+        DragonAnimator.SetBool("fire", false);
+
         DragonAnimator.ResetTrigger("walk");
         DragonAnimator.SetTrigger("idle");
 
-        //Fire
-        if (Input.GetKeyDown(KeyCode.F) && CanvasEvil == null)
+        //Fly Fire Breath
+        if (CooldownCountdown < 0f)
         {
-            DragonAnimator.SetBool("fire", true);
+            if (Input.GetKeyDown(KeyCode.F) && CanvasEvil == null)
+            {
+                //reset the cooldown timer
+                CooldownCountdown = Cooldown;
+                
+                //print a message to the console
+                Debug.Log("Registered click");
+                
+                DragonAnimator.SetBool("fire", true);
             
-            DragonAnimator.ResetTrigger("walk");
-            DragonAnimator.ResetTrigger("idle");
+                DragonAnimator.ResetTrigger("walk");
+                DragonAnimator.ResetTrigger("idle");
             
-            CreateParticles();
+                CreateParticles();
+            }
+        } else
+        {
+            //Countdown the timer with the time past in the last frame
+            CooldownCountdown -= Time.deltaTime;
         }
         
+
         if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("breath fire"))
         {
+            //Stop Particles
+            IEnumerator ExecuteAfterTime2(float time)
+            {
+                yield return new WaitForSeconds(time);
+                Destroy(fireBreath);            
+            }
+            StartCoroutine(ExecuteAfterTime2(2));
+            
             //Here scene will change
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
-                Debug.Log("bla");
-                
-                TheEnd.SetActive(true); //DESTROY ALL SOUNDS LIKE FIRE BREATH
-
+                TheEnd.SetActive(true);
             }
-            
-            StartCoroutine(ExecuteAfterTime(7));
+            StartCoroutine(ExecuteAfterTime(10));
         }
+        
+        /*
+        //Stops Fly Fire Breath and its sounds if incorrect animation is played
+        if (DragonAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            StopParticles();
+
+        } */
 
     }
     
     void CreateParticles()
     {
         fireBreath.Play();
+    }
+    
+    void StopParticles()
+    {
+        fireBreath.Stop();
     }
 }
