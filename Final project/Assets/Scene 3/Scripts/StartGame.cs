@@ -17,6 +17,8 @@ public class StartGame : MonoBehaviour
       
       //disable player controller script
       Dragon.GetComponent<ThirdPersonMovement>().enabled = false;
+      //Time.timeScale = 0;
+
     }   
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class StartGame : MonoBehaviour
             
         //disable player controller script
         Dragon.GetComponent<ThirdPersonMovement>().enabled = true;
+        //Time.timeScale = 1;
+
         
         Instructions.SetActive(true);
         StartCanvas.SetActive(false);

@@ -29,11 +29,11 @@ public class PlayerHealth : MonoBehaviour
     
     private void Update()
     {
-        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 25;
+        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 25;
 
         if (InAttackRange == true)
         {
-            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
             DragonAnimator.ResetTrigger("walk");
         }
 
@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster1
         if (collision.transform.tag == "Monster1")
         {
-            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
 
             hitFly.Play();
 
@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster2
         if (collision.transform.tag == "Monster2")
         {
-            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
 
             hitFly.Play();
 
@@ -94,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
         //Monster3
         if (collision.transform.tag == "Monster3")
         {
-            GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
+            //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 0;
 
             hitFly.Play();
 
@@ -123,7 +123,7 @@ public class PlayerHealth : MonoBehaviour
             IEnumerator ExecuteAfterTime(float time)
             {
                 yield return new WaitForSeconds(time);
-                GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+                //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
             }
             StartCoroutine(ExecuteAfterTime(1.2f));
             
@@ -157,7 +157,7 @@ public class PlayerHealth : MonoBehaviour
     //Projectile stop hitting
     void OnCollisionExit(Collision collision)
     {
-        GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
+        //GameObject.FindWithTag("Player").GetComponent<ThirdPersonMovement>().speed = 10;
 
         InAttackRange = false;
 
